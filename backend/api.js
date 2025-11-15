@@ -35,6 +35,17 @@ app.post("/pets", async (request,response) =>{ //cria um novo pet, salva no mong
     }
 });
 
+// READ
+app.get("/pets", async(request,response) =>{ //
+    try {
+        const buscaPet = await petsCrud.find();  // Busca todos os pets no banco find()
+        response.json(buscaPet);  // Envia a lista de pets de volta como resposta
+    } catch (error) {
+        response.send('Ops! Erro ao buscar pet!');
+    }
+});
+
+
 
 
 //Inicia o servidor e fica "escutando" na porta 3000 (definida na variável acima)
