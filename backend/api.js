@@ -45,6 +45,19 @@ app.get("/pets", async(request,response) =>{ //
     }
 });
 
+//UPDATE
+app.put("/pets/:id", async(request,response) =>{ // busca pelo id qual objeto vai ser atualizado
+    try {
+        const atualizaPet = await petsCrud.findByIdAndUpdate(
+            request.params.id, // Pega o ID que veio na URL
+            request.body, // Pega os novos dados enviados pelo usuário
+            {new: true}  // Faz com que o retorno já seja o pet atualizado
+        ); 
+        response.json(atualizaPet);  // Envia o pet atualizado de volta como resposta
+    } catch (error) {
+        response.send('Ops! Erro ao atualizar pet!');
+    }
+});
 
 
 
