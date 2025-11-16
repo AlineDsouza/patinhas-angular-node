@@ -1,7 +1,7 @@
 import express, { request, response } from 'express'; //Cria um servidor web para receber requisições HTTP GET, POST, DELETE, etc..
 import dotenv from 'dotenv'; // permite variáveis de ambiente
 import mongoose from 'mongoose'; // permite o q código converse com o banco de dados Mongodb
-import petsCrud from './routes/petsCrud.js'; //importa o 'modelo' feito em petsCrud.js
+import petsCrud from './models/petsCrud.js'; //importa o 'modelo' feito em petsCrud.js
 
 dotenv.config(); //busca um arquivo env | entende o arquivo como variável de ambiente
 
@@ -23,7 +23,7 @@ const conectaDB = async () =>{
 conectaDB();
 
 
-// CRUD
+// CRUD PETS
 
 //CREATE
 app.post("/pets", async (request,response) =>{ //cria um novo pet, salva no mongodb e devolve o pet criado.
@@ -31,7 +31,7 @@ app.post("/pets", async (request,response) =>{ //cria um novo pet, salva no mong
         const novoPet = await petsCrud.create(request.body);
         response.json(novoPet);
     } catch (error) {
-        response.send('Erro ao criar novo pet!');
+        response.send('Erro ao criar novo pet!', error.message);
     }
 });
 
@@ -70,6 +70,12 @@ app.delete("/pets/:id", async(request,response) =>{ // busca pelo id qual objeto
         response.send('Ops! Erro ao deletar pet!');
     }
 });
+
+
+
+
+
+
 
 
 
