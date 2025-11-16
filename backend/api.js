@@ -59,6 +59,18 @@ app.put("/pets/:id", async(request,response) =>{ // busca pelo id qual objeto va
     }
 });
 
+//DELETE
+app.delete("/pets/:id", async(request,response) =>{ // busca pelo id qual objeto vai ser deletado
+    try {
+        const excluirPet = await petsCrud.findByIdAndDelete(
+            request.params.id // procura o id e deleta
+        ); 
+        response.json(excluirPet); 
+    } catch (error) {
+        response.send('Ops! Erro ao deletar pet!');
+    }
+});
+
 
 
 //Inicia o servidor e fica "escutando" na porta 3000 (definida na variável acima)
