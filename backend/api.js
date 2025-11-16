@@ -2,6 +2,7 @@ import express, { request, response } from 'express'; //Cria um servidor web par
 import dotenv from 'dotenv'; // permite variáveis de ambiente
 import mongoose from 'mongoose'; // permite o q código converse com o banco de dados Mongodb
 import petsCrud from './models/petsCrud.js'; //importa o 'modelo' feito em petsCrud.js
+import utilizador from './models/utilizador.js';
 
 dotenv.config(); //busca um arquivo env | entende o arquivo como variável de ambiente
 
@@ -26,7 +27,7 @@ conectaDB();
 // CRUD PETS
 
 //CREATE
-app.post("/pets", async (request,response) =>{ //cria um novo pet, salva no mongodb e devolve o pet criado.
+app.post("/api/pets", async (request,response) =>{ //cria um novo pet, salva no mongodb e devolve o pet criado.
     try {
         const novoPet = await petsCrud.create(request.body);
         response.json(novoPet);
@@ -36,7 +37,7 @@ app.post("/pets", async (request,response) =>{ //cria um novo pet, salva no mong
 });
 
 // READ
-app.get("/pets", async(request,response) =>{ //
+app.get("/api/pets", async(request,response) =>{ //
     try {
         const buscaPet = await petsCrud.find();  // Busca todos os pets no banco find()
         response.json(buscaPet);  // Envia a lista de pets de volta como resposta
@@ -46,7 +47,7 @@ app.get("/pets", async(request,response) =>{ //
 });
 
 //UPDATE
-app.put("/pets/:id", async(request,response) =>{ // busca pelo id qual objeto vai ser atualizado
+app.put("/api/pets/:id", async(request,response) =>{ // busca pelo id qual objeto vai ser atualizado
     try {
         const atualizaPet = await petsCrud.findByIdAndUpdate(
             request.params.id, // Pega o ID que veio na URL
@@ -60,7 +61,7 @@ app.put("/pets/:id", async(request,response) =>{ // busca pelo id qual objeto va
 });
 
 //DELETE
-app.delete("/pets/:id", async(request,response) =>{ // busca pelo id qual objeto vai ser deletado
+app.delete("/api/pets/:id", async(request,response) =>{ // busca pelo id qual objeto vai ser deletado
     try {
         const excluirPet = await petsCrud.findByIdAndDelete(
             request.params.id // procura o id e deleta
@@ -73,7 +74,53 @@ app.delete("/pets/:id", async(request,response) =>{ // busca pelo id qual objeto
 
 
 
+//CRUD UTILIZADOR
+ 
+//CREATE
+app.post("/api/utilizador", async (request,response) =>{ //cria um novo utilizador e salva no mongodb
+    try {
+        const novoUtilizador = await utilizador.create(request.body);
+        response.json(novoUtilizador);
+    } catch (error) {
+        response.send('Erro ao criar novo utilizador!', error.message);
+    }
+});
 
+// READ UTIZADOR
+app.get("/api/utilizador", async(request,response) =>{ //
+    try {
+        const buscaUtilizador = await utilizador.find();  // Busca todos os utilizadores no banco find()
+        response.json(buscaUtilizador);  // Envia a lista de utilizadores de volta como resposta
+    } catch (error) {
+        response.send('Ops! Erro ao buscar utiizador!');
+    }
+});
+
+//UPDATE UTIZADOR
+app.put("/api/utilizador/:id", async(request,response) =>{ // busca pelo id qual objeto vai ser atualizado
+    try {
+        const atualizaUtilizador = await utilizador.findByIdAndUpdate(
+            request.params.id, // Pega o ID que veio na URL
+            request.body, // Pega os novos dados enviados pelo usuário
+            {new: true}  // Faz com que o retorno já seja o utilizador atualizado
+        ); 
+        response.json(atualizaUtilizador);  // Envia o utiliador byid atualizado de volta como resposta
+    } catch (error) {
+        response.send('Ops! Erro ao atualizar utilizador!');
+    }
+});
+
+//DELETE UTIZADOR
+app.delete("/api/utilizador/:id", async(request,response) =>{ // busca pelo id qual objeto vai ser deletado
+    try {
+        const excluirUtilizador = await utilizador.findByIdAndDelete(
+            request.params.id // procura o id e deleta
+        ); 
+        response.json(excluirUtilizador); 
+    } catch (error) {
+        response.send('Ops! Erro ao deletar utilizador!');
+    }
+});
 
 
 
