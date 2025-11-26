@@ -1,11 +1,9 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import utilizador from '../models/utilizador.js';
+import Utilizador from '../models/utilizador.js';
 
 
-// REGISTO
-
-// REGISTRAR UTILIZADOR - cria utilizador 
+// REGISTO - cria utilizador 
 export const registo = async (request, response) => {
     const {nome, email, senha, confirmaSenha} = request.body;
 
@@ -16,7 +14,7 @@ export const registo = async (request, response) => {
     if(senha !== confirmaSenha){return response.send('As senhas não são iguais!' )}
 
     //verificarse o utilizador existe |
-    const utilizadorExiste= await utilizador.findOne({email});
+    const utilizadorExiste= await Utilizador.findOne({email});
     
     if(utilizadorExiste){
         return response.send('Por favor, utilize outro e-mail!' );
@@ -47,22 +45,17 @@ export const registo = async (request, response) => {
     //  {"email": "joao@example.com","senha": "123456"}
 
 
+
 // LOGIN
-
-
 export const login = async (request, response) => {
     const {email,senha} = request.body;
-    console.log(utilizador); //apagar depois
-    
 
     //VALIDAÇÃO - necessário ter e-mail e senha válida
     if(!email){return response.send('O e-mail é obrigatório!' )}
     if(!senha){return response.send('A senha é obrigatória!' )}
         
-    //VERIFICA SE O UTILIZADOR EXISTE
-        
-    const user= await utilizador.findOne({email});
-    console.log(user); //apagar depois
+    //VERIFICA SE O UTILIZADOR EXISTE  
+    const user= await Utilizador.findOne({email});
         
     if(!user){
         return response.send('Utilizador não encontrado!' );
@@ -74,7 +67,6 @@ export const login = async (request, response) => {
     if(!verificaSenha){
         return response.send("Senha inválida!");
     }  
-
 
 // VALIDAÇÃO DENTRO DO LOGIN PARA PODER ETREGAR O TOKEN PARA O UTILIZADOR 
     try {

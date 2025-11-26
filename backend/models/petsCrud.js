@@ -10,6 +10,9 @@ const petsCrudSchema = new mongoose.Schema({
     vacinado:Boolean,
     castrado:Boolean,
     raca:String,
+    imageUrl: String,
+    imageId: String
+
 });
 
 // Esse modelo utilizado para pets no db

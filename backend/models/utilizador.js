@@ -5,7 +5,8 @@ const utilizadorSchema = new mongoose.Schema({
    nome: { type: String, required: true, trim: true },
    email: { type: String, required: true, unique: true, lowercase: true, trim: true },
    senha: { type: String, required: true, minlength: 6 },
-});
+   role: { type: String, enum: ['user','admin'], default: 'user' }
+}, { timestamps: true });
 
 // Esse modelo é utilizado para utilizadores no db
-export default mongoose.model('utilizador', utilizadorSchema);
+export default mongoose.model('Utilizador', utilizadorSchema);
