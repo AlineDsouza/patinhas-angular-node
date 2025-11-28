@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Routes } from '@angular/router';
+
 import { HomeComponent } from './pages/home/home.component';
-import { HeaderComponent } from './pages/header/header.component';
+import { HeaderComponent } from './core/components/header/header.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegistoComponent } from './pages/registo/registo.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
@@ -11,7 +12,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { DetailsPetComponent } from './pages/details-pet/details-pet.component';
 import { ListPetsComponent } from './pages/list-pets/list-pets.component';
 import { ProfileComponent } from './pages/profile/profile.component';
-import { FooterComponent } from './pages/footer/footer.component';
+import { FooterComponent } from './core/components/footer/footer.component';
 
 export const routes: Routes = [
 {path:'',component: HomeComponent},

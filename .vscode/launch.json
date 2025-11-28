@@ -1,0 +1,25 @@
+{
+    // VS Code launch configurations for the Angular frontend.
+    // - "Serve and Launch Chrome (Angular)" will run the dev server (preLaunchTask: "npm: start")
+    //   and open Chrome at http://localhost:4200 for debugging.
+    // - "Attach to Chrome (Remote Debugging)" attaches to a Chrome instance started
+    //   with the `--remote-debugging-port=9222` flag.
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Serve and Launch Chrome (Angular)",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:4200",
+            "webRoot": "${workspaceFolder}/frontend",
+            "preLaunchTask": "Run Frontend"
+        },
+        {
+            "name": "Attach to Chrome (Remote Debugging)",
+            "type": "pwa-chrome",
+            "request": "attach",
+            "port": 9222,
+            "webRoot": "${workspaceFolder}/frontend"
+        }
+    ]
+}

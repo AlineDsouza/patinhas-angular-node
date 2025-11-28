@@ -1,6 +1,19 @@
+/* importar fonte aqui*/
+
 /* Estilo global */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-style: normal;
+  font-style: 400;
+}
+body{
+  height:100vh;
+  /*background-image: url() no-repeat;*/
+  /*background-size: cover;*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
