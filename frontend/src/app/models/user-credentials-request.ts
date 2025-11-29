@@ -1,4 +1,4 @@
-export interface UserCredentialsRequest {
-  email: string,
-  senha: string
+export class UserCredentialsRequest {
+  email: string;
+  senha: string;
 }

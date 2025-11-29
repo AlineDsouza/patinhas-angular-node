@@ -16,7 +16,9 @@ import { FooterComponent } from './core/components/footer/footer.component';
 import { CrudPetsComponent } from './pages/crud-pets/crud-pets.component';
 
 export const routes: Routes = [
-{path:'',component: HomeComponent},
+
+{path:'',redirectTo: 'home',pathMatch:'full'},
+{path:'home',component: HomeComponent},
 {path:'header',component: HeaderComponent},
 {path:'login',component: LoginComponent},
 {path:'registo',component: RegistoComponent},
@@ -28,6 +30,7 @@ export const routes: Routes = [
 {path:'listaPets',component: ListPetsComponent},
 {path:'perfil',component: ProfileComponent},
 {path:'rodape',component: FooterComponent},
-{path:'crud-pets',component: CrudPetsComponent}
+{path:'crud-pets',component: CrudPetsComponent},
+{path:'**',redirectTo: 'home'} //quando a rota não for encontrada redireciona para home
 ]; //Necessário uma configuração para que possa ser direcionado paras as rotas
 

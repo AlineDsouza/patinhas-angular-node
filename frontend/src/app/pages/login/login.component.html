@@ -1,15 +1,28 @@
-<div class="container">
-    <img src="#" alt="logo">
+<h2>Login</h2>
+<form [formGroup]="formLogin">
 
-    <form>
-        <label>
-            <input type="email" placeholder="E-mail" required>
-        </label> <br>
-        <label>
-            <input type="password" placeholder="Senha" required>
-        </label>
+  <!-- EMAIL -->
+  <p class="requiredCampo" 
+     *ngIf="formLogin.get('email')?.hasError('required') && formLogin.get('email')?.touched">
+    O email é obrigatório.
+  </p>
+  <p class="requiredCampo" 
+     *ngIf="formLogin.get('email')?.hasError('email') && formLogin.get('email')?.touched">
+    Informe um email válido.
+  </p>
+  <input type="email" formControlName="email" placeholder="Email" class="input-forms"> <br>
 
-        <button>Login</button>
+  <!-- SENHA -->
+  <p class="requiredCampo" 
+     *ngIf="formLogin.get('senha')?.hasError('required') && formLogin.get('senha')?.touched">
+    A senha é obrigatória.
+  </p>
+  <p class="requiredCampo" 
+     *ngIf="formLogin.get('senha')?.hasError('minlength') && formLogin.get('senha')?.touched">
+    A senha precisa ter no mínimo 6 caracteres.
+  </p>
+  <input type="password" formControlName="senha" placeholder="Senha" class="input-forms"> <br><br>
 
-    </form>
-</div>
+  <button type="button" [disabled]="formLogin.invalid">Entrar</button>
+
+</form>
