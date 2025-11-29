@@ -1,0 +1,147 @@
+<p>{{formCrudPets.value.nome}}
+<p>{{formCrudPets.value.idade}}
+<p>{{formCrudPets.value.cidade}}
+<p>{{formCrudPets.value.descricao}}
+<p>{{formCrudPets.value.peso}}
+<p>{{formCrudPets.value.raca}}
+<p>{{formCrudPets.value.vacinado}}
+<p>{{formCrudPets.value.castrado}}
+
+  
+</p>
+
+<form [formGroup]="formCrudPets">
+  <!--NOME - verificação -->
+  <p class="requiredCampo"
+   *ngIf="formCrudPets.get('nome')?.hasError('required') && formCrudPets.get('nome')?.touched">
+  O nome é obrigatório.
+</p>
+<p class="requiredCampo"
+   *ngIf="formCrudPets.get('nome')?.hasError('minlength') && formCrudPets.get('nome')?.touched">
+  O nome precisa conter pelo menos 3 caracteres.
+</p>
+  <input type="text" formControlName="nome" placeholder="Nome"> <br>
+
+
+   <!-- IDADE -->
+  <p class="requiredCampo"
+     *ngIf="formCrudPets.get('idade')?.hasError('required') && formCrudPets.get('idade')?.touched">
+    A idade é obrigatória.
+  </p>
+  <p class="requiredCampo"
+     *ngIf="formCrudPets.get('idade')?.hasError('min') && formCrudPets.get('idade')?.touched">
+    A idade deve ser maior ou igual a 0.
+  </p>
+  <p class="requiredCampo"
+     *ngIf="formCrudPets.get('idade')?.hasError('max') && formCrudPets.get('idade')?.touched">
+    A idade deve ser menor ou igual a 30.
+  </p>
+  <input type="number" formControlName="idade" placeholder="Idade" min="0"> <br>
+
+
+   <!-- CIDADE -->
+  <p class="requiredCampo"
+     *ngIf="formCrudPets.get('cidade')?.hasError('required') && formCrudPets.get('cidade')?.touched">
+    A cidade é obrigatória.
+  </p>
+  <p class="requiredCampo"
+     *ngIf="formCrudPets.get('cidade')?.hasError('minlength') && formCrudPets.get('cidade')?.touched">
+    A cidade precisa conter pelo menos 3 caracteres.
+  </p>
+  <p class="requiredCampo"
+     *ngIf="formCrudPets.get('cidade')?.hasError('maxlength') && formCrudPets.get('cidade')?.touched">
+    A cidade pode ter no máximo 30 caracteres.
+  </p>
+  <input type="text" formControlName="cidade" placeholder="Cidade"> <br>
+
+
+  <!-- DESCRIÇÃO -->
+  <p class="requiredCampo"
+     *ngIf="formCrudPets.get('descricao')?.hasError('required') && formCrudPets.get('descricao')?.touched">
+    A descrição é obrigatória.
+  </p>
+  <p class="requiredCampo"
+     *ngIf="formCrudPets.get('descricao')?.hasError('minlength') && formCrudPets.get('descricao')?.touched">
+    A descrição deve ter pelo menos 10 caracteres.
+  </p>
+  <p class="requiredCampo"
+     *ngIf="formCrudPets.get('descricao')?.hasError('maxlength') && formCrudPets.get('descricao')?.touched">
+    A descrição pode ter no máximo 600 caracteres.
+  </p>
+  <input type="text" formControlName="descricao" placeholder="Descrição"> <br>
+
+
+ <!-- PESO -->
+<p class="requiredCampo"
+   *ngIf="formCrudPets.get('peso')?.hasError('required') && formCrudPets.get('peso')?.touched">
+  O peso é obrigatório.
+</p>
+<p class="requiredCampo"
+   *ngIf="formCrudPets.get('peso')?.hasError('min') && formCrudPets.get('peso')?.touched">
+  O peso deve ser maior ou igual a 0.
+</p>
+<input type="number" formControlName="peso" placeholder="Peso (kg)"> <br>
+
+
+   <!-- RAÇA -->
+  <p class="requiredCampo"
+     *ngIf="formCrudPets.get('raca')?.hasError('required') && formCrudPets.get('raca')?.touched">
+    A raça é obrigatória.
+  </p>
+  <input type="text" formControlName="raca" placeholder="Raça"> <br><br>
+
+ <!-- VACINADO -->
+  <p>Vacinado(a)</p>
+  <p class="requiredCampo"
+     *ngIf="formCrudPets.get('vacinado')?.hasError('required') && formCrudPets.get('vacinado')?.touched">
+    Informe se está vacinado.
+  </p>
+  <label>
+    <input type="radio" value="true" formControlName="vacinado"> Sim
+  </label>
+  <label>
+    <input type="radio" value="false" formControlName="vacinado"> Não
+  </label>
+
+
+<!-- CASTRADO -->
+  <p>Castrado(a)</p>
+  <p class="requiredCampo"
+     *ngIf="formCrudPets.get('castrado')?.hasError('required') && formCrudPets.get('castrado')?.touched">
+    Informe se está castrado.
+  </p>
+  <label>
+    <input type="radio" value="true" formControlName="castrado"> Sim
+  </label>
+  <label>
+    <input type="radio" value="false" formControlName="castrado"> Não
+  </label>
+
+
+  <!-- BOTOES -->
+  <br><br>
+
+  @if (btnCadastrar) {
+    <button type="button" value="cadastrar" [disabled]="formCrudPets.invalid">Cadastrar</button>
+  }@else{
+    <button type="button" value="edita" >Editar</button>
+    <button type="button" value="remover" >Deletar</button>
+    <button type="button" value="cancelar" >Cancelar</button>
+  }
+
+
+  <!-- TABELA DE INFORMAÇÕES -->
+  <br><br>
+  <p>Informações</p>
+  <table class="table">
+    <tr><th>Nome</th></tr>
+    <tr><th>Idade</th></tr>
+    <tr><th>Cidade</th></tr>
+    <tr><th>Descrição</th></tr>
+    <tr><th>Peso (kg)</th></tr>
+    <tr><th>Raça</th></tr>
+    <tr><th>Vacinado(a)</th></tr>
+    <tr><th>Castrado(a)</th></tr>
+  </table>
+
+</form>

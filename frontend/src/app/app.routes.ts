@@ -13,6 +13,7 @@ import { DetailsPetComponent } from './pages/details-pet/details-pet.component';
 import { ListPetsComponent } from './pages/list-pets/list-pets.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { FooterComponent } from './core/components/footer/footer.component';
+import { CrudPetsComponent } from './pages/crud-pets/crud-pets.component';
 
 export const routes: Routes = [
 {path:'',component: HomeComponent},
@@ -26,7 +27,7 @@ export const routes: Routes = [
 {path:'detalhes',component: DetailsPetComponent},
 {path:'listaPets',component: ListPetsComponent},
 {path:'perfil',component: ProfileComponent},
-{path:'rodape',component: FooterComponent}
-
+{path:'rodape',component: FooterComponent},
+{path:'crud-pets',component: CrudPetsComponent}
 ]; //Necessário uma configuração para que possa ser direcionado paras as rotas
 
