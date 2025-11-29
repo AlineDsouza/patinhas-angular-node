@@ -1,13 +1,127 @@
+/* Título */
+h2 {
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+
+/* Mensagens de erro */
 .requiredCampo {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: #996402;
-    background: #ffeec0;
-    padding: 5px 14px;
-    border-radius: 6px;
-    font-family: 'Segoe UI', sans-serif;
-    margin: 6px 0;
-    font-weight: 600;
-  }
-   
+  color: #d32f2f;
+  font-size: 13px;
+  margin: 4px 0 8px 0;
+  font-weight: 600;
+  font-family: Arial, sans-serif;
+}
+
+/* Inputs */
+.input-forms {
+  width: 100%;
+  max-width: 400px;
+  padding: 8px 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: 'Segoe UI', sans-serif;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.input-forms:focus {
+  border-color: #3f51b5;
+  outline: none;
+  box-shadow: 0 0 5px rgba(63, 81, 181, 0.3);
+}
+
+/* Radio buttons */
+.input-radio {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.input-radio label {
+  display: flex;
+  align-items: center;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 14px;
+}
+
+.input-radio input[type="radio"] {
+  margin-right: 5px;
+  accent-color: #3f51b5; /* cor moderna no radio */
+}
+
+/* Botões */
+button {
+  padding: 10px 20px;
+  margin-right: 10px;
+  font-size: 14px;
+  font-family: 'Segoe UI', sans-serif;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button[disabled] {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+button:not([disabled]) {
+  background-color: #3f51b5;
+  color: white;
+}
+
+button:not([disabled]):hover {
+  background-color: #303f9f;
+}
+
+/* Tabela */
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Segoe UI', sans-serif;
+  margin-top: 20px;
+}
+
+.table th, .table td {
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.table th {
+  background-color: #3f51b5;
+  color: white;
+  font-weight: bold;
+}
+
+.table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.table tr:hover {
+  background-color: #eceff1;
+}
+
+
+/* Botão Selecionar */
+.btn-selecionar button {
+  padding: 5px 10px;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-selecionar button:hover {
+  background-color: #1976d2;
+}

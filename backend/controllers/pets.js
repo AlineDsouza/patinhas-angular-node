@@ -1,6 +1,9 @@
 import petsCrud from '../models/petsCrud.js'; // IMPORTA SCHEMA 
 import cloudinary from '../services/cloudinary.js';
 //É necessário exportar o curd para que o server.js tenha acesso
+import multer from 'multer';
+import pkg from 'multer-storage-cloudinary';
+const { CloudinaryStorage } = pkg;
 
 // CRUD PETS
 

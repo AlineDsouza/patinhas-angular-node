@@ -1,15 +1,4 @@
-<p>{{formCrudPets.value.nome}}
-<p>{{formCrudPets.value.idade}}
-<p>{{formCrudPets.value.cidade}}
-<p>{{formCrudPets.value.descricao}}
-<p>{{formCrudPets.value.peso}}
-<p>{{formCrudPets.value.raca}}
-<p>{{formCrudPets.value.vacinado}}
-<p>{{formCrudPets.value.castrado}}
-
-  
-</p>
-
+<h2>Cadastro</h2>
 <form [formGroup]="formCrudPets">
   <!--NOME - verificação -->
   <p class="requiredCampo"
@@ -20,7 +9,7 @@
    *ngIf="formCrudPets.get('nome')?.hasError('minlength') && formCrudPets.get('nome')?.touched">
   O nome precisa conter pelo menos 3 caracteres.
 </p>
-  <input type="text" formControlName="nome" placeholder="Nome"> <br>
+  <input type="text" formControlName="nome" placeholder="Nome" class="input-forms"> <br>
 
 
    <!-- IDADE -->
@@ -36,7 +25,7 @@
      *ngIf="formCrudPets.get('idade')?.hasError('max') && formCrudPets.get('idade')?.touched">
     A idade deve ser menor ou igual a 30.
   </p>
-  <input type="number" formControlName="idade" placeholder="Idade" min="0"> <br>
+  <input type="number" formControlName="idade" placeholder="Idade" min="0" class="input-forms"> <br>
 
 
    <!-- CIDADE -->
@@ -52,7 +41,7 @@
      *ngIf="formCrudPets.get('cidade')?.hasError('maxlength') && formCrudPets.get('cidade')?.touched">
     A cidade pode ter no máximo 30 caracteres.
   </p>
-  <input type="text" formControlName="cidade" placeholder="Cidade"> <br>
+  <input type="text" formControlName="cidade" placeholder="Cidade" class="input-forms"> <br>
 
 
   <!-- DESCRIÇÃO -->
@@ -68,7 +57,7 @@
      *ngIf="formCrudPets.get('descricao')?.hasError('maxlength') && formCrudPets.get('descricao')?.touched">
     A descrição pode ter no máximo 600 caracteres.
   </p>
-  <input type="text" formControlName="descricao" placeholder="Descrição"> <br>
+  <input type="text" formControlName="descricao" placeholder="Descrição" class="input-forms"> <br>
 
 
  <!-- PESO -->
@@ -80,7 +69,7 @@
    *ngIf="formCrudPets.get('peso')?.hasError('min') && formCrudPets.get('peso')?.touched">
   O peso deve ser maior ou igual a 0.
 </p>
-<input type="number" formControlName="peso" placeholder="Peso (kg)"> <br>
+<input type="number" formControlName="peso" placeholder="Peso (kg)" class="input-forms"> <br>
 
 
    <!-- RAÇA -->
@@ -88,12 +77,14 @@
      *ngIf="formCrudPets.get('raca')?.hasError('required') && formCrudPets.get('raca')?.touched">
     A raça é obrigatória.
   </p>
-  <input type="text" formControlName="raca" placeholder="Raça"> <br><br>
+  <input type="text" formControlName="raca" placeholder="Raça" class="input-forms"> <br><br>
 
  <!-- VACINADO -->
-  <p>Vacinado(a)</p>
-  <p class="requiredCampo"
-     *ngIf="formCrudPets.get('vacinado')?.hasError('required') && formCrudPets.get('vacinado')?.touched">
+ <p>Vacinado(a)</p>
+  <div class="input-radio">
+
+    <p class="requiredCampo"
+    *ngIf="formCrudPets.get('vacinado')?.hasError('required') && formCrudPets.get('vacinado')?.touched">
     Informe se está vacinado.
   </p>
   <label>
@@ -102,12 +93,15 @@
   <label>
     <input type="radio" value="false" formControlName="vacinado"> Não
   </label>
+</div>
 
 
 <!-- CASTRADO -->
   <p>Castrado(a)</p>
-  <p class="requiredCampo"
-     *ngIf="formCrudPets.get('castrado')?.hasError('required') && formCrudPets.get('castrado')?.touched">
+  <div class="input-radio">
+
+    <p class="requiredCampo"
+    *ngIf="formCrudPets.get('castrado')?.hasError('required') && formCrudPets.get('castrado')?.touched">
     Informe se está castrado.
   </p>
   <label>
@@ -116,17 +110,18 @@
   <label>
     <input type="radio" value="false" formControlName="castrado"> Não
   </label>
+</div>
 
 
   <!-- BOTOES -->
-  <br><br>
+  <br>
 
   @if (btnCadastrar) {
-    <button type="button" value="cadastrar" [disabled]="formCrudPets.invalid">Cadastrar</button>
+    <button type="button" value="cadastrar" (click)="cadastrar()" [disabled]="formCrudPets.invalid">Cadastrar</button>
   }@else{
-    <button type="button" value="edita" >Editar</button>
-    <button type="button" value="remover" >Deletar</button>
-    <button type="button" value="cancelar" >Cancelar</button>
+    <button type="button" value="edita" (click)="editar()" >Alterar</button>
+    <button type="button" value="remover" (click)="deletar()" >Deletar</button>
+    <button type="button" value="cancelar" (click)="cancelar()" >Cancelar</button>
   }
 
 
@@ -134,14 +129,36 @@
   <br><br>
   <p>Informações</p>
   <table class="table">
-    <tr><th>Nome</th></tr>
-    <tr><th>Idade</th></tr>
-    <tr><th>Cidade</th></tr>
-    <tr><th>Descrição</th></tr>
-    <tr><th>Peso (kg)</th></tr>
-    <tr><th>Raça</th></tr>
-    <tr><th>Vacinado(a)</th></tr>
-    <tr><th>Castrado(a)</th></tr>
+      <thead>
+    <tr>
+      <th>#</th>
+      <th>Nome</th>
+      <th>Idade</th>
+      <th>Cidade</th>
+      <th>Descrição</th>
+      <th>Peso (kg)</th>
+      <th>Raça</th>
+      <th>Vacinado(a)</th>
+      <th>Castrado(a)</th>
+      <th>Selecionar</th>
+    </tr>
+  </thead>
+
+    <tr *ngFor="let v of VetorPet; index as indice">
+      <td>{{indice + 1}}</td>
+      <td>{{v.nome}}</td>
+      <td>{{v.idade}}</td>
+      <td>{{v.cidade}}</td>
+      <td>{{v.descricao}}</td>
+      <td>{{v.peso}}</td>
+      <td>{{v.raca}}</td>
+      <td>{{v.vacinado}}</td>
+      <td>{{v.castrado}}</td>
+      <td class="btn-selecionar">
+        <button (click)="selecionar(indice)">Selecionar</button>
+      </td>
+    </tr>
+
   </table>
 
 </form>
