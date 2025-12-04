@@ -8,16 +8,24 @@ export const registo = async (request, response) => {
     const {nome, email, senha, confirmaSenha} = request.body;
 
     //validação 
-    if(!nome){return response.send('O nome é obrigatório!' )}
-    if(!email){return response.send('O e-mail é obrigatório!' )}
-    if(!senha){return response.send('A senha é obrigatória!' )}
-    if(senha !== confirmaSenha){return response.send('As senhas não são iguais!' )}
+    if (!nome) {
+        return response.status(400).json({ msg: "O nome é obrigatório!" });
+    }
+    if (!email) {
+        return response.status(400).json({ msg: "O e-mail é obrigatório!" });
+    }
+    if (!senha) {
+        return response.status(400).json({ msg: "A senha é obrigatória!" });
+    }
+    if (senha !== confirmaSenha) {
+        return response.status(400).json({ msg: "As senhas não são iguais!" });
+    }
 
     //verificarse o utilizador existe |
     const utilizadorExiste= await Utilizador.findOne({email});
     
-    if(utilizadorExiste){
-        return response.send('Por favor, utilize outro e-mail!' );
+    if (utilizadorExiste) {
+        return response.status(409).json({ msg: "Por favor, utilize outro e-mail!" });
     }
     
     // cria senha encriptada
@@ -25,7 +33,7 @@ export const registo = async (request, response) => {
     const senhaHash = await bcrypt.hash(senha,salt);    
     
     try {
-        const novoUtilizador = new utilizador({   //criar o utilizador
+        const novoUtilizador = new Utilizador({   //criar o utilizador
             nome,
             email,
             senha: senhaHash
@@ -34,7 +42,8 @@ export const registo = async (request, response) => {
         response.json(novoUtilizador);
         
     } catch (error) {
-        response.send('Erro ao criar novo utilizador!', error.message);
+        console.error(error);
+        return response.status(500).json({ msg: "Erro ao criar novo utilizador!" });
     }   
 };
 
@@ -51,21 +60,21 @@ export const login = async (request, response) => {
     const {email,senha} = request.body;
 
     //VALIDAÇÃO - necessário ter e-mail e senha válida
-    if(!email){return response.send('O e-mail é obrigatório!' )}
-    if(!senha){return response.send('A senha é obrigatória!' )}
+    if(!email){return response.status(400).json({ msg: "O e-mail é obrigatório!" });}
+    if(!senha){ return response.status(400).json({ msg: "A senha é obrigatória!" });}
         
     //VERIFICA SE O UTILIZADOR EXISTE  
     const user= await Utilizador.findOne({email});
         
     if(!user){
-        return response.send('Utilizador não encontrado!' );
+       return response.status(404).json({ msg: "Utilizador não encontrado!" });
     }
         
     // VERIFICAR SENHA - verificar se a senha confere com a da base de dados
     const verificaSenha =  await bcrypt.compare(senha, user.senha);
         
     if(!verificaSenha){
-        return response.send("Senha inválida!");
+        return response.status(400).json({ msg: "Senha inválida!" });
     }  
 
 // VALIDAÇÃO DENTRO DO LOGIN PARA PODER ETREGAR O TOKEN PARA O UTILIZADOR 
@@ -77,13 +86,15 @@ export const login = async (request, response) => {
             secret,
         );
 
-        return response.json({
-            msg: 'Autenticação efetuada com sucesso!',
+         return response.status(200).json({
+            msg: "Autenticação efetuada com sucesso!",
             token: token
         });
 
     } catch (error) {
-        console.log(error)
-        return response.json( 'Login efetuado negado, acesso não autenticado!');
+        console.error(error);
+        return response.status(500).json({
+            msg: "Login negado, acesso não autenticado!"
+        });
     }
 };

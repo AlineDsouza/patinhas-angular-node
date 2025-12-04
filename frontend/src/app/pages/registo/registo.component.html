@@ -1,0 +1,28 @@
+<h2>Registo</h2>
+
+<div *ngIf="mensagemSucesso" class="msg-sucesso">{{ mensagemSucesso }}</div>
+<div *ngIf="mensagemErro" class="msg-erro">{{ mensagemErro }}</div>
+
+<form [formGroup]="formRegisto">
+
+  <label>Nome:</label>
+  <input type="text" formControlName="nome">
+  <p *ngIf="formRegisto.get('nome')?.touched && formRegisto.get('nome')?.hasError('required')" class="erro">
+    Nome é obrigatório.
+  </p> <br>
+
+  <label>E-mail:</label>
+  <input type="email" formControlName="email">
+  <p *ngIf="formRegisto.get('email')?.touched && formRegisto.get('email')?.hasError('email')" class="erro">
+    E-mail inválido.
+  </p><br>
+
+  <label>Senha:</label>
+  <input type="password" formControlName="senha"> <br>
+
+  <label>Confirmar Senha:</label>
+  <input type="password" formControlName="confirmaSenha"> <br>
+
+  <button type="button" (click)="registrar()">Registar</button>
+
+</form>

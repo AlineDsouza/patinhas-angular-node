@@ -2,12 +2,6 @@ import { v2 as cloudinary } from 'cloudinary'; // Importa cloudinary versão 2 e
 import dotenv from 'dotenv';
 dotenv.config(); // Carrega variáveis de ambiente do arquivo .env
 
-console.log("TESTE CLOUDINARY ENV:", {
-  cloud_name: process.env.CLOUD_NAME,
-  api_key: process.env.CLOUD_KEY,
-  api_secret: process.env.CLOUD_KEY_SECRET
-});
-
 // Configura o Cloudinary com as credenciais do arquivo .env
 
 cloudinary.config({
