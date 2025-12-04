@@ -1,7 +1,8 @@
 import { CommonModule, NgIf } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Pet } from '../../models/Pet';
+import { PetService } from '../../services/pet.service.js';
+import { Pet } from '../../models/Pet.js';
 
 @Component({
   selector: 'app-crud-pets',
@@ -9,7 +10,12 @@ import { Pet } from '../../models/Pet';
   templateUrl: './crud-pets.component.html',
   styleUrl: './crud-pets.component.css'
 })
-export class CrudPetsComponent {
+export class CrudPetsComponent implements OnInit {
+
+
+  
+
+
 
   //Objeto FormGroup para gerenciar o formulário
  formCrudPets = new FormGroup({
@@ -29,71 +35,138 @@ export class CrudPetsComponent {
   btnCadastrar:boolean = true;
   //Vetor para armazenar os pets cadastrados
   VetorPet: Pet[] = [];
-
   //Armazenar indice do pet selecionado
   indice:number = -1; //garante que nenhum pet está selecionado inicialmente
 
 
+mensagemSucesso: string = '';
+mensagemErro: string = '';
 
+selectedFile: File | null = null;
+previewImagem: string | null = null;
 
-  //Função de cadastro
-cadastrar() {
-      //Cadastro no vetor
-      this.VetorPet.push(this.formCrudPets.value as Pet);
-      //Limpeza dos inputs
-      this.formCrudPets.reset();
-      //Visualização no console
-     // console.table(this.VetorPet);  // TESTE 
-    }
+  constructor(private petService: PetService) {}
 
-//Função de Selecção
-selecionar(indice: number) {
-  //atribuir o indice do pet selecionado
-  this.indice = indice;
-  //preencher o formulário com os dados do pet selecionado
-  this.formCrudPets.setValue({
-    nome: this.VetorPet[indice].nome,
-    idade: this.VetorPet[indice].idade,
-    cidade: this.VetorPet[indice].cidade,
-    descricao: this.VetorPet[indice].descricao,
-    peso: this.VetorPet[indice].peso,
-    vacinado: this.VetorPet[indice].vacinado,
-    castrado: this.VetorPet[indice].castrado,
-    raca: this.VetorPet[indice].raca,
-    // imageUrl: this.VetorPet[indice].imageUrl,
-    // imageId: this.VetorPet[indice].imageId
-  });
-  //Visibilidade dos botões
-  this.btnCadastrar = false;
+exibirMensagemSucesso(msg: string) {
+  this.mensagemSucesso = msg;
+  this.mensagemErro = '';
+  setTimeout(() => this.mensagemSucesso = '', 3000);
 }
 
-//Função de editar
-editar() {
-   //aletrar vetor do indice selecionado
-   this.VetorPet[this.indice] = this.formCrudPets.value as Pet;
-    //limpeza dos inputs
-    this.formCrudPets.reset();
-    //alterar visibilidade dos botões
-    this.btnCadastrar = true;
+exibirMensagemErro(msg: string) {
+  this.mensagemErro = msg;
+  this.mensagemSucesso = '';
+  setTimeout(() => this.mensagemErro = '', 3000);
 }
 
-//Função de deletar
-deletar() {
-  // deletar o pet selecionado do vetor
-  this.VetorPet.splice(this.indice,1);
-  //limpar os inputs
-  this.formCrudPets.reset();
-  //alterar visibilidade dos botões
-  this.btnCadastrar = true;
+onFileSelected(event: any) {
+  this.selectedFile = event.target.files[0];
+
+  const reader = new FileReader();
+  reader.onload = e => this.previewImagem = reader.result as string;
+  reader.readAsDataURL(this.selectedFile);
 }
 
-//Função de cancelamento
-  cancelar() {
-    //limpar os inputs
-    this.formCrudPets.reset();
-    //alterar visibilidade dos botões
-    this.btnCadastrar = true;
-  
+
+
+
+
+
+  ngOnInit(): void {
+    this.listarPets();
   }
+
+  // GET – carrega da API
+  listarPets(): void {
+    this.petService.getPets().subscribe(pets => {
+      this.VetorPet = pets;
+    });
+  }
+
+  // POST – cria no backend
+ cadastrar(): void {
+  const formData = new FormData();
+
+  Object.entries(this.formCrudPets.value).forEach(([key, value]) => {
+    formData.append(key, value as any);
+  });
+
+  if (this.selectedFile) {
+    formData.append('image', this.selectedFile);
+  }
+
+  this.petService.createPet(formData).subscribe({
+    next: () => {
+      this.listarPets();
+      this.formCrudPets.reset();
+      this.selectedFile = null;
+      this.previewImagem = null;
+      this.btnCadastrar = true;
+      this.exibirMensagemSucesso("Pet cadastrado com sucesso!");
+    },
+    error: () => this.exibirMensagemErro("Erro ao cadastrar o pet!")
+  });
 }
 
+
+  selecionar(indice: number): void {
+    this.indice = indice;
+    this.btnCadastrar = false;
+
+    this.formCrudPets.setValue({
+      nome: this.VetorPet[indice].nome,
+      idade: this.VetorPet[indice].idade,
+      cidade: this.VetorPet[indice].cidade,
+      descricao: this.VetorPet[indice].descricao,
+      peso: this.VetorPet[indice].peso,
+      vacinado: this.VetorPet[indice].vacinado,
+      castrado: this.VetorPet[indice].castrado,
+      raca: this.VetorPet[indice].raca,
+    });
+  }
+
+  // PUT – atualiza no backend
+ editar(): void {
+  if (this.indice === -1) return;
+
+  const id = this.VetorPet[this.indice]._id!;
+  const formData = new FormData();
+
+  Object.entries(this.formCrudPets.value).forEach(([key, value]) => {
+    formData.append(key, value as any);
+  });
+
+  if (this.selectedFile) {
+    formData.append('image', this.selectedFile);
+  }
+
+  this.petService.updatePet(id, formData).subscribe({
+    next: () => {
+      this.listarPets();
+      this.formCrudPets.reset();
+      this.btnCadastrar = true;
+      this.selectedFile = null;
+      this.previewImagem = null;
+      this.indice = -1;
+      this.exibirMensagemSucesso("Pet atualizado com sucesso!");
+    },
+    error: () => this.exibirMensagemErro("Erro ao atualizar o pet!")
+  });
+}
+
+
+  // DELETE – remove no backend
+  deletar(): void {
+    const id = this.VetorPet[this.indice]._id!;
+
+    this.petService.deletePet(id).subscribe(() => {
+      this.listarPets();
+      this.formCrudPets.reset();
+      this.btnCadastrar = true;
+    });
+  }
+
+  cancelar(): void {
+    this.formCrudPets.reset();
+    this.btnCadastrar = true;
+  }}

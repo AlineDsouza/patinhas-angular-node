@@ -1,4 +1,17 @@
 <h2>Cadastro</h2>
+<div *ngIf="mensagemSucesso" class="msg-sucesso">
+  {{ mensagemSucesso }}
+</div>
+
+<div *ngIf="mensagemErro" class="msg-erro">
+  {{ mensagemErro }}
+</div>
+<label>Imagem do Pet:</label>
+<input type="file" (change)="onFileSelected($event)" accept="image/*"><br>
+
+<img *ngIf="previewImagem" [src]="previewImagem" class="preview">
+
+
 <form [formGroup]="formCrudPets">
   <!--NOME - verificação -->
   <p class="requiredCampo"

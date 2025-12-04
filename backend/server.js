@@ -2,7 +2,6 @@ import express, { request, response } from 'express'; //Cria um servidor web par
 import dotenv from 'dotenv'; // permite variáveis de ambiente
 import mongoose from 'mongoose'; // permite o q código converse com o banco de dados Mongodb
 import cors from 'cors';
-import upload from './services/multer.js';
 
 //CONFIGURAÇÃO DO EXPRESS
 dotenv.config(); //busca um arquivo env | entende o arquivo como variável de ambiente
@@ -16,6 +15,8 @@ import authRoutes from './routes/authRouters.js';
 const app = express(); //variável app será nosso servidor principal
 const PORT = 3000; //Define a porta onde o servidor vai rodar ex: http://localhost:3000
 app.use(express.json());  //Middleware - função que trata as informações recebidas - converte as informações p. json
+// aceita JSON grande, necessário para imagens 
+app.use(express.json({ limit: "10mb" }));
 
 // Middlewares 
 app.use(cors({
@@ -24,7 +25,6 @@ app.use(cors({
   credentials: true
 }));              // Permite que front acesse a API
 
-app.use(express.json());      // Aceita JSON no body
 
 //CONEXÃO COM MONGODB - função que tenta conectar ao banco de dados 
 const conectaDB = async () =>{
@@ -47,6 +47,11 @@ app.use('/auth', authRoutes);
 app.listen(PORT, () => { //arrow funcion
 console.log(`O servidor está rodando na porta ${PORT} ✔ `); //mensagem de confirmação 
 });
+
+
+
+
+
 
 
 

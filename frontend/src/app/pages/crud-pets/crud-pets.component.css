@@ -125,3 +125,29 @@ button:not([disabled]):hover {
 .btn-selecionar button:hover {
   background-color: #1976d2;
 }
+
+.preview {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 10px 0;
+}
+
+.msg-sucesso {
+  color: white;
+  background: #28a745;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.msg-erro {
+  color: white;
+  background: #dc3545;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  text-align: center;
+}
