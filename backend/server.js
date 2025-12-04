@@ -14,9 +14,10 @@ import authRoutes from './routes/authRouters.js';
 
 const app = express(); //variável app será nosso servidor principal
 const PORT = 3000; //Define a porta onde o servidor vai rodar ex: http://localhost:3000
-app.use(express.json());  //Middleware - função que trata as informações recebidas - converte as informações p. json
+//app.use(express.json());  //Middleware - função que trata as informações recebidas - converte as informações p. json
 // aceita JSON grande, necessário para imagens 
-app.use(express.json({ limit: "10mb" }));
+app.use(express.json({ limit: "15mb" }));
+app.use(express.urlencoded({ limit: "15mb", extended: true }));
 
 // Middlewares 
 app.use(cors({

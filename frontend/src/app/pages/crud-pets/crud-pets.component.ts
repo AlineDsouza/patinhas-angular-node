@@ -1,8 +1,8 @@
 import { CommonModule, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { PetService } from '../../services/pet.service.js';
-import { Pet } from '../../models/Pet.js';
+import { PetService } from '../../services/pet.service';
+import { Pet } from '../../models/Pet';
 
 @Component({
   selector: 'app-crud-pets',
@@ -11,11 +11,6 @@ import { Pet } from '../../models/Pet.js';
   styleUrl: './crud-pets.component.css'
 })
 export class CrudPetsComponent implements OnInit {
-
-
-  
-
-
 
   //Objeto FormGroup para gerenciar o formulário
  formCrudPets = new FormGroup({
@@ -26,9 +21,7 @@ export class CrudPetsComponent implements OnInit {
   peso: new FormControl(null,[Validators.required,]),
   vacinado: new FormControl(false, [Validators.required]),
   castrado: new FormControl(false, [Validators.required]),
-  raca: new FormControl('',[Validators.required]),
-  // imageUrl: new FormControl('',[Validators.required]),
-  // imageId: new FormControl('',[Validators.required])
+  raca: new FormControl('',[Validators.required])
   });
 
   //Visibilidade dos botões
@@ -84,18 +77,14 @@ onFileSelected(event: any) {
   }
 
   // POST – cria no backend
- cadastrar(): void {
-  const formData = new FormData();
+cadastrar(): void {
+  //  objeto JSON com os dados do form
+  const dados = {
+    ...this.formCrudPets.value,
+    image: this.previewImagem   // a imagem convertida para base64
+  };
 
-  Object.entries(this.formCrudPets.value).forEach(([key, value]) => {
-    formData.append(key, value as any);
-  });
-
-  if (this.selectedFile) {
-    formData.append('image', this.selectedFile);
-  }
-
-  this.petService.createPet(formData).subscribe({
+  this.petService.createPet(dados).subscribe({
     next: () => {
       this.listarPets();
       this.formCrudPets.reset();
@@ -109,38 +98,49 @@ onFileSelected(event: any) {
 }
 
 
-  selecionar(indice: number): void {
-    this.indice = indice;
-    this.btnCadastrar = false;
+selecionar(indice: number): void {
+  this.indice = indice;
+  this.btnCadastrar = false;
 
-    this.formCrudPets.setValue({
-      nome: this.VetorPet[indice].nome,
-      idade: this.VetorPet[indice].idade,
-      cidade: this.VetorPet[indice].cidade,
-      descricao: this.VetorPet[indice].descricao,
-      peso: this.VetorPet[indice].peso,
-      vacinado: this.VetorPet[indice].vacinado,
-      castrado: this.VetorPet[indice].castrado,
-      raca: this.VetorPet[indice].raca,
-    });
-  }
+  const petSelecionado = this.VetorPet[indice];
+
+  // Preenche o formulário com os dados do pet
+  this.formCrudPets.setValue({
+    nome: petSelecionado.nome,
+    idade: petSelecionado.idade,
+    cidade: petSelecionado.cidade,
+    descricao: petSelecionado.descricao,
+    peso: petSelecionado.peso,
+    vacinado: petSelecionado.vacinado,
+    castrado: petSelecionado.castrado,
+    raca: petSelecionado.raca,
+  });
+
+  // Mostra a imagem do pet na tela quando clicar em selecionar
+  this.previewImagem = petSelecionado.imageUrl || null;
+
+  // Impede que uma imagem antiga seja reenviada
+  this.selectedFile = null;
+}
 
   // PUT – atualiza no backend
  editar(): void {
-  if (this.indice === -1) return;
-
-  const id = this.VetorPet[this.indice]._id!;
-  const formData = new FormData();
-
-  Object.entries(this.formCrudPets.value).forEach(([key, value]) => {
-    formData.append(key, value as any);
-  });
-
-  if (this.selectedFile) {
-    formData.append('image', this.selectedFile);
+  if (this.indice === -1) {
+    this.exibirMensagemErro("Selecione um pet antes de editar!");
+    return;
   }
+ // pega o _id do pet selecionado
+  const id = this.VetorPet[this.indice]._id!;
 
-  this.petService.updatePet(id, formData).subscribe({
+  // JSON com os dados do formulário
+  // e também envia a imagem em (se existir)
+  const dados = {
+    ...this.formCrudPets.value,
+    image: this.previewImagem  
+  };
+  
+
+  this.petService.updatePet(id, dados).subscribe({
     next: () => {
       this.listarPets();
       this.formCrudPets.reset();
@@ -167,6 +167,9 @@ onFileSelected(event: any) {
   }
 
   cancelar(): void {
-    this.formCrudPets.reset();
-    this.btnCadastrar = true;
+  this.formCrudPets.reset();
+  this.btnCadastrar = true;
+  this.previewImagem = null;
+  this.selectedFile = null;
+  this.indice = -1;
   }}
