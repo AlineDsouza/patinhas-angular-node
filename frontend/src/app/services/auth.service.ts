@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { lastValueFrom, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,9 @@ export class AuthService {
     return this.http.post(`${this.apiUrl}/registo`, dados);
   }
 
-  login(dados: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/login`, dados);
+  async login(dados: any) {
+    return await lastValueFrom(
+      this.http.post(`${this.apiUrl}/login`, dados)
+    );
   }
 }

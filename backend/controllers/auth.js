@@ -36,23 +36,22 @@ export const registo = async (request, response) => {
         const novoUtilizador = new Utilizador({   //criar o utilizador
             nome,
             email,
-            senha: senhaHash
+            senha: senhaHash,
+            role:'user' // tipo de utilizador criado por padrão
         });
         await novoUtilizador.save(); // salva o utilizador no MongoDB
-        response.json(novoUtilizador);
+        
+        return response.status(201).json({
+            msg: "Utilizador criado com sucesso!",
+            id: novoUtilizador._id,
+            role: novoUtilizador.role
+        });
         
     } catch (error) {
         console.error(error);
         return response.status(500).json({ msg: "Erro ao criar novo utilizador!" });
     }   
 };
-
-//http://localhost:3000/auth/registo rota de teste
-//  {"nome": "João", "email": "joao@example.com","senha": "123456", "confirmaSenha": "123456"}
-
-  //http://localhost:3000/auth/login
-    //  {"email": "joao@example.com","senha": "123456"}
-
 
 
 // LOGIN
@@ -81,14 +80,14 @@ export const login = async (request, response) => {
     try {
         const secret = process.env.SECRET;
         
-        const token = jwt.sign(
-            { id: user._id },
-            secret,
-        );
+        const token = jwt.sign({ id: user._id },secret);
+
 
          return response.status(200).json({
             msg: "Autenticação efetuada com sucesso!",
-            token: token
+            token: token,
+            role: user.role?.toLowerCase()?.trim(),
+            nome: user.nome
         });
 
     } catch (error) {

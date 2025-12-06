@@ -1,28 +1,37 @@
 <h2>Login</h2>
+
+<!-- MENSAGEM DE SUCESSO -->
+<p *ngIf="mensagemSucesso" class="msg-sucesso">{{ mensagemSucesso }}</p>
+
+<!-- MENSAGEM DE ERRO -->
+<p *ngIf="mensagemErro" class="msg-erro">{{ mensagemErro }}</p>
+
 <form [formGroup]="formLogin">
 
   <!-- EMAIL -->
-  <p class="requiredCampo" 
+  <p class="requiredCampo"
      *ngIf="formLogin.get('email')?.hasError('required') && formLogin.get('email')?.touched">
     O email é obrigatório.
   </p>
-  <p class="requiredCampo" 
+  <p class="requiredCampo"
      *ngIf="formLogin.get('email')?.hasError('email') && formLogin.get('email')?.touched">
     Informe um email válido.
   </p>
   <input type="email" formControlName="email" placeholder="Email" class="input-forms"> <br>
 
   <!-- SENHA -->
-  <p class="requiredCampo" 
+  <p class="requiredCampo"
      *ngIf="formLogin.get('senha')?.hasError('required') && formLogin.get('senha')?.touched">
     A senha é obrigatória.
   </p>
-  <p class="requiredCampo" 
+  <p class="requiredCampo"
      *ngIf="formLogin.get('senha')?.hasError('minlength') && formLogin.get('senha')?.touched">
     A senha precisa ter no mínimo 6 caracteres.
   </p>
   <input type="password" formControlName="senha" placeholder="Senha" class="input-forms"> <br><br>
 
-  <button type="button" [disabled]="formLogin.invalid">Entrar</button>
+  <!-- BOTÃO -->
+  <button type="button" [disabled]="formLogin.invalid" (click)="entrar()">Entrar</button>
 
 </form>
+<a routerLink="/registo">Registo</a>

@@ -17,20 +17,20 @@ import { CrudPetsComponent } from './pages/crud-pets/crud-pets.component';
 
 export const routes: Routes = [
 
-{path:'',redirectTo: 'home',pathMatch:'full'},
+{path:'',redirectTo: 'login',pathMatch:'full'},
 {path:'home',component: HomeComponent},
 {path:'header',component: HeaderComponent},
 {path:'login',component: LoginComponent},
 {path:'registo',component: RegistoComponent},
 {path:'sobreNos',component: AboutUsComponent},
 {path:'admin',component: AdminComponent},
-{path:'formulario',component: AdoptionFormComponent},
+{path:'formularioAdocao',component: AdoptionFormComponent},
 {path:'contacto',component: ContactComponent},
 {path:'detalhes',component: DetailsPetComponent},
 {path:'listaPets',component: ListPetsComponent},
 {path:'perfil',component: ProfileComponent},
 {path:'rodape',component: FooterComponent},
 {path:'crud-pets',component: CrudPetsComponent},
-{path:'**',redirectTo: 'home'} //quando a rota não for encontrada redireciona para home
+{path:'**',redirectTo: 'login'} //quando a rota não for encontrada redireciona para home
 ]; //Necessário uma configuração para que possa ser direcionado paras as rotas
 

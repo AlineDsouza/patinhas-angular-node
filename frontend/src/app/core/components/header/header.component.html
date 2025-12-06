@@ -8,8 +8,11 @@
     <a routerLink="/contacto">Contacto</a>
   </nav>
 
+<div *ngIf="utilizadorNome">
+  <p>Olá, {{ utilizadorNome }}!</p>
+  <p *ngIf="utilizadorRole === 'admin'">Perfil: {{ utilizadorRole }}</p>
+</div>
 
-  
   
   <button><a routerLink="/login">Login / Sign Up</a></button>
 </header>
