@@ -36,4 +36,5 @@ deletePet(id: string): Observable<void> {
 recebePetId(id: string): Observable<Pet> {
   return this.http.get<Pet>(`${this.apiUrl}/${id}`);
 }
+
 }

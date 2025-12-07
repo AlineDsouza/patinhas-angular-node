@@ -25,8 +25,8 @@ export class ListPetsComponent implements OnInit {
     });
   }
 
-  verDetalhe(id: string): void {
-    // Navega para os detalhes do pet
-    this.router.navigate(['/detalhes', id]);
-  }
+verDetalhe(id: string): void {
+  this.router.navigate(['/detalhes', id]);
+}
+
 }

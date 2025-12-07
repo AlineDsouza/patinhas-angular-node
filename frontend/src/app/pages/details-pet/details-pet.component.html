@@ -1,0 +1,22 @@
+<h2 *ngIf="pet">{{ pet.nome}}</h2>
+
+<section class="container" *ngIf="pet">
+  <div class="esquerdo">
+    <div class="card1">
+      <img [src]="pet.imageUrl" alt="Imagem do pet" />
+    </div>
+  </div>
+
+  <div class="direito">
+    <div class="card2">
+      <p><strong>Descrição:</strong> {{ pet.descricao }}</p>
+      <p><strong>Idade:</strong> {{ pet.idade }} anos</p>
+      <p><strong>Peso:</strong> {{ pet.peso }} kg</p>
+      <p><strong>Raça:</strong> {{ pet.raca }}</p>
+      <p><strong>Vacinado:</strong> {{ pet.vacinado ? 'Sim' : 'Não' }}</p>
+      <p><strong>Castrado:</strong> {{ pet.castrado ? 'Sim' : 'Não' }}</p>
+
+      <button class="btn" [routerLink]="['/formularioAdocao']">Quero adotar</button>
+    </div>
+  </div>
+</section>

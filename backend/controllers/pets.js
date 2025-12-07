@@ -121,3 +121,15 @@ export const deletaPet = async (request, response) => {
     response.status(500).json({ error: "Erro ao deletar pet!" });
   }
 };
+
+
+//Busca pet por ID
+export const pegaPetId = async (request, response) => {
+  try {
+    const pet = await petsCrud.findById(request.params.id);
+    if (!pet) return response.status(404).json({ msg: "Pet não encontrado" });
+    response.json(pet);
+  } catch (error) {
+    response.status(500).json({ msg: "Erro ao buscar pet", error: error.message });
+  }
+};
