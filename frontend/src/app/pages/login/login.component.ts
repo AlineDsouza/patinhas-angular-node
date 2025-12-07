@@ -40,6 +40,8 @@ export class LoginComponent {
       localStorage.setItem('token', resposta.token);
       localStorage.setItem('role', resposta.role);
       localStorage.setItem('nome', resposta.nome);
+      localStorage.setItem('email', resposta.email);
+
 
       // REDIRECIONAMENTO AUTOMÁTICO
       if (resposta.role === 'admin') {

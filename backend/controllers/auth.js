@@ -87,7 +87,8 @@ export const login = async (request, response) => {
             msg: "Autenticação efetuada com sucesso!",
             token: token,
             role: user.role?.toLowerCase()?.trim(),
-            nome: user.nome
+            nome: user.nome,
+            email: user.email
         });
 
     } catch (error) {

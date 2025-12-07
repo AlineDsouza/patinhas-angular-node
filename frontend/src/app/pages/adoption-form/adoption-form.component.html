@@ -1,1 +1,53 @@
-<p>adoption-form works!</p>
+<h2>Formulário de Adoção</h2>
+
+<!-- MENSAGENS -->
+<div *ngIf="mensagemSucesso" class="msg-sucesso">{{ mensagemSucesso }}</div>
+<div *ngIf="mensagemErro" class="msg-erro">{{ mensagemErro }}</div>
+
+<form [formGroup]="formAdocao">
+
+  <!-- Nome do Adotante -->
+  <label>Nome:</label>
+  <input type="text" formControlName="nomeAdotante" placeholder="Seu nome">
+  <p *ngIf="formAdocao.get('nomeAdotante')?.touched && formAdocao.get('nomeAdotante')?.hasError('required')" class="erro">
+    O nome é obrigatório.
+  </p>
+
+  <!-- Email do Adotante -->
+  <label>Email:</label>
+  <input type="email" formControlName="emailAdotante" placeholder="Seu email" >
+  <!-- Nenhuma validação mostrada já que o campo está desabilitado -->
+
+  <!-- Telefone -->
+  <label>Telefone:</label>
+  <input type="text" formControlName="telefone" placeholder="Telefone">
+  <p *ngIf="formAdocao.get('telefone')?.touched && formAdocao.get('telefone')?.hasError('required')" class="erro">
+    O telefone é obrigatório.
+  </p>
+
+  <!-- Rotina com o pet -->
+  <label>Como será a rotina do pet?</label>
+  <textarea formControlName="rotinaPet"></textarea>
+  <p *ngIf="formAdocao.get('rotinaPet')?.touched && formAdocao.get('rotinaPet')?.hasError('required')" class="erro">
+    Este campo é obrigatório.
+  </p>
+
+  <!-- Experiência anterior com pets -->
+  <label>Você já teve outros pets? Fale sobre sua experiência:</label>
+  <textarea formControlName="experienciaAnterior"></textarea>
+  <p *ngIf="formAdocao.get('experienciaAnterior')?.touched && formAdocao.get('experienciaAnterior')?.hasError('required')" class="erro">
+    Este campo é obrigatório.
+  </p>
+
+  <!-- Disponibilidade -->
+  <label>Quanto tempo o pet ficará sozinho por dia?</label>
+  <input type="text" formControlName="disponibilidade" placeholder="Ex: 2 horas">
+
+  <!-- Justificativa -->
+  <label>Por que deseja adotar este pet?</label>
+  <textarea formControlName="justificativa"></textarea>
+
+  <br>
+  <button type="button" (click)="enviar()">Enviar Formulário</button>
+
+</form>

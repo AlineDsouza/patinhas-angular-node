@@ -10,6 +10,7 @@ dotenv.config(); //busca um arquivo env | entende o arquivo como variável de am
 import petsRouter from './routes/petsRouters.js';
 import utilizadorRoutes from './routes/utilizadorRouters.js';
 import authRoutes from './routes/authRouters.js';
+import adocaoRouters from './routes/adocaoRouters.js';
 
 
 const app = express(); //variável app será nosso servidor principal
@@ -42,6 +43,7 @@ conectaDB();
 app.use('/api/pets', petsRouter);
 app.use('/api/utilizador', utilizadorRoutes);
 app.use('/auth', authRoutes);
+app.use('/api/adocao', adocaoRouters);
 
 
 //INICIA O SERVIDOR e fica "escutando" na porta 3000 (definida na variável acima)
