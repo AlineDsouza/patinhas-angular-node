@@ -1,58 +1,61 @@
-h2 {
-  text-align: center;
-  margin-top: 2rem;
-  color: #333;
-}
-
 .container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  padding: 2rem;
   gap: 2rem;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+  background-color: #f9f9f9;
 }
 
 .esquerdo, .direito {
   flex: 1 1 300px;
-  max-width: 500px;
+  max-width: 450px;
 }
 
 .card1 img {
   width: 100%;
+  height: auto;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .card2 {
-  background-color: #f9f9f9;
-  padding: 2rem;
+  background-color: #ffffff;
+  padding: 1.5rem;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .card2 p {
   font-size: 1rem;
-  margin-bottom: 0.8rem;
+  margin: 0.6rem 0;
   color: #444;
 }
 
-.card2 strong {
-  color: #222;
+.card2 p strong {
+  color: #333;
+}
+
+h2 {
+  text-align: center;
+  color: #444;
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
 .btn {
   margin-top: 1.5rem;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  background-color: #ff6b6b;
+  padding: 0.8rem 1.5rem;
+  background-color: #4CAF50;
   color: white;
   border: none;
   border-radius: 8px;
+  font-size: 1rem;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 .btn:hover {
-  background-color: #e64949;
+  background-color: #45a049;
 }
