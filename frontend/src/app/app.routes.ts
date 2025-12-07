@@ -26,7 +26,7 @@ export const routes: Routes = [
 {path:'admin',component: AdminComponent},
 {path:'formularioAdocao',component: AdoptionFormComponent},
 {path:'contacto',component: ContactComponent},
-{path:'detalhes',component: DetailsPetComponent},
+{path:'detalhes/:id',component: DetailsPetComponent},
 {path:'listaPets',component: ListPetsComponent},
 {path:'perfil',component: ProfileComponent},
 {path:'rodape',component: FooterComponent},

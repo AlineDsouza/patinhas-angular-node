@@ -8,28 +8,32 @@ import { Pet } from '../models/Pet';
 })
 export class PetService {
 
-  private apiUrl = 'http://localhost:3000/api/pets'; // endereço da API no backend
+private apiUrl = 'http://localhost:3000/api/pets'; // endereço da API no backend
 
-  constructor(private http: HttpClient) {} 
+constructor(private http: HttpClient) {} 
 
-   // GET - Buscar todos os pets
-  getPets(): Observable<Pet[]> {
-    return this.http.get<Pet[]>(this.apiUrl);
-  }
+// GET - Buscar todos os pets
+getPets(): Observable<Pet[]> {
+  return this.http.get<Pet[]>(this.apiUrl);
+}
   
 // POST - Criar um novo pet
 createPet(dados: any): Observable<Pet> {
-  return this.http.post<Pet>(this.apiUrl, dados);// aqui eu simplesmente mando o objeto JSON
- 
+  return this.http.post<Pet>(this.apiUrl, dados); // aqui euenvia o objeto JSON
 }
 
-  // PUT - Atualizar um pet existente
+// PUT - Atualizar um pet existente
 updatePet(id: string, dados: any): Observable<Pet> {
   return this.http.put<Pet>(`${this.apiUrl}/${id}`, dados);
 }
 
-  // DELETE - Remover um pet pelo id
-  deletePet(id: string): Observable<void> {
+// DELETE - Remover um pet pelo id
+deletePet(id: string): Observable<void> {
   return this.http.delete<void>(`${this.apiUrl}/${id}`);
+}
+
+// GET - Buscar um pet pelo id
+recebePetId(id: string): Observable<Pet> {
+  return this.http.get<Pet>(`${this.apiUrl}/${id}`);
 }
 }

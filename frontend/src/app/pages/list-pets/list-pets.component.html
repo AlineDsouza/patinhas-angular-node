@@ -1,1 +1,10 @@
-<p>list-pets works!</p>
+<h2>Lista de Amigos Disponíveis</h2><br>
+<p></p>
+
+<div class="container">
+  <div *ngFor="let item of pets" class="card">
+    <h2>Nome: {{ item.nome }}</h2>
+    <img [src]="item.imageUrl" alt="Imagem do pet">
+    <button type="button" class="button" (click)="verDetalhe(item._id)">Me conheça!</button>
+  </div>
+</div>
