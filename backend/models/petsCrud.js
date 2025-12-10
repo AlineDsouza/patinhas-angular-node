@@ -11,7 +11,9 @@ const petsCrudSchema = new mongoose.Schema({
     castrado:Boolean,
     raca:String,
     imageUrl: String,
-    imageId: String
+    imageId: String,
+    especie: {type: String,enum: ['Cão', 'Gato'],required: true
+}
 
 });
 

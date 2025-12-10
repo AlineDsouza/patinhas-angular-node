@@ -21,7 +21,8 @@ export class CrudPetsComponent implements OnInit {
   peso: new FormControl(null,[Validators.required,]),
   vacinado: new FormControl(false, [Validators.required]),
   castrado: new FormControl(false, [Validators.required]),
-  raca: new FormControl('',[Validators.required])
+  raca: new FormControl('',[Validators.required]),
+  especie: new FormControl('', [Validators.required])
   });
 
   //Visibilidade dos botões
@@ -114,6 +115,7 @@ selecionar(indice: number): void {
     vacinado: petSelecionado.vacinado,
     castrado: petSelecionado.castrado,
     raca: petSelecionado.raca,
+    especie: petSelecionado.especie
   });
 
   // Mostra a imagem do pet na tela quando clicar em selecionar
@@ -173,3 +175,4 @@ selecionar(indice: number): void {
   this.selectedFile = null;
   this.indice = -1;
   }}
+  

@@ -7,7 +7,7 @@ import cloudinary from '../services/cloudinary.js'; // IMPORTA CLOUDINARY
 // CREATE
 export const criaPet = async (request, response) => {
   try {
-    const { nome, idade, cidade, descricao, peso, vacinado, castrado, raca, image } = request.body;
+    const { nome, idade, cidade, descricao, peso, vacinado, castrado, raca, especie, image } = request.body;
 
     let imageUrl = null;
     let imageId = null;
@@ -31,6 +31,7 @@ export const criaPet = async (request, response) => {
       vacinado,
       castrado,
       raca,
+      especie,
       imageUrl,
       imageId
     });

@@ -8,6 +8,7 @@ export interface Pet {
   vacinado: boolean;
   castrado: boolean;
   raca: string;
+  especie?: 'Cão' | 'Gato';
   imageUrl?: string;
   imageId?: string;
 }

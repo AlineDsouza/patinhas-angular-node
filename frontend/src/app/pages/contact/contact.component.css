@@ -1,0 +1,57 @@
+.contato-container {
+  padding: 4rem 2rem;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.contato-container h2 {
+  font-size: 2rem;
+  color: #002b5b;
+  margin-bottom: 0.5rem;
+}
+
+.subtexto {
+  color: #555;
+  font-size: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.conteudo-contato {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.informacoes {
+  max-width: 400px;
+  text-align: left;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.informacoes ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.informacoes li {
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.informacoes li strong {
+  color: #002b5b;
+}
+
+.mapa {
+  width: 100%;
+  margin-top: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+}

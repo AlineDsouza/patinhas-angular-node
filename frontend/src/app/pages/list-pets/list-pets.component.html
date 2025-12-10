@@ -1,10 +1,34 @@
 <h2>Lista de Amigos Disponíveis</h2><br>
 <p></p>
 
+
+<!-- Filtros -->
+<div class="filtros">
+  <label>Espécie:</label>
+  <select [(ngModel)]="filtroEspecie">
+    <option value="">Todos</option>
+    <option value="Cão">Cão</option>
+    <option value="Gato">Gato</option>
+  </select>
+
+  <label>Cidade:</label>
+  <select [(ngModel)]="filtroCidade">
+    <option value="">Todos os pets</option>
+    <option value="Vila Nova de Gaia">Vila Nova de Gaia</option>
+    <option value="Porto">Porto</option>
+    <option value="Outros">Outros</option>
+  </select>
+
+  <button (click)="aplicarFiltro()">Filtrar</button>
+</div>
+
+<!-- Listagem -->
 <div class="container">
-  <div *ngFor="let item of pets" class="card">
+  <div *ngFor="let item of petsFiltrados" class="card">
     <h2>Nome: {{ item.nome }}</h2>
     <img [src]="item.imageUrl" alt="Imagem do pet">
     <button type="button" class="button" (click)="verDetalhe(item._id)">Me conheça!</button>
   </div>
 </div>
+
+

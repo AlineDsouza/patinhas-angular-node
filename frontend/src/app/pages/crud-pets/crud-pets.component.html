@@ -94,6 +94,19 @@
   </p>
   <input type="text" formControlName="raca" placeholder="Raça" class="input-forms"> <br><br>
 
+    <!-- ESPÉCIE -->
+<label>Espécie:</label>
+<p class="requiredCampo"
+   *ngIf="formCrudPets.get('especie')?.hasError('required') && formCrudPets.get('especie')?.touched">
+  A espécie é obrigatória.
+</p>
+<select formControlName="especie">
+  <option value="" disabled selected>Selecione</option>
+  <option value="Cão">Cão</option>
+  <option value="Gato">Gato</option>
+</select> <br>
+
+
 
   <!-- VACINADO -->
   <p>Vacinado(a)</p>
@@ -147,6 +160,8 @@
     <button type="button" value="cancelar" (click)="cancelar()">Cancelar</button>
   }
 
+
+
   <!-- TABELA -->
   <br><br>
   <p>Informações</p>
@@ -164,7 +179,9 @@
         <th>Raça</th>
         <th>Vacinado</th>
         <th>Castrado</th>
+        <th>Espécie</th>
         <th>Selecionar</th>
+        
       </tr>
     </thead>
 
@@ -185,6 +202,7 @@
         <td>{{ v.raca }}</td>
         <td>{{ v.vacinado }}</td>
         <td>{{ v.castrado }}</td>
+        <td>{{v.especie}}</td>
 
         <td class="btn-selecionar">
           <button (click)="selecionar(indice)">Selecionar</button>
@@ -193,5 +211,7 @@
     </tbody>
 
   </table>
+
+
 
 </form>

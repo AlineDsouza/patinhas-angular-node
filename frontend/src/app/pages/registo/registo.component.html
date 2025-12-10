@@ -1,4 +1,11 @@
-<h2>Registo</h2>
+<div class="form-container">
+  <div class="form-image">
+    <h2>Registo</h2>
+    <img src="https://images.unsplash.com/photo-1618814422919-d9f6d8c213c7" alt="Cão feliz para adoção" />
+    <h3>Encontre seu novo melhor amigo.</h3>
+    <p>Milhares de cães e gatos esperam por um lar. A jornada começa aqui.</p>
+  </div>
+
 
 <div *ngIf="mensagemSucesso" class="msg-sucesso">{{ mensagemSucesso }}</div>
 <div *ngIf="mensagemErro" class="msg-erro">{{ mensagemErro }}</div>
@@ -26,4 +33,6 @@
   <button type="button" (click)="registrar()">Registar</button>
 
 </form>
-<a routerLink="/login">Login</a>
+<p>Já tem conta?  <a routerLink="/login">Login</a></p>
+
+</div>

@@ -1,0 +1,239 @@
+.hero-banner {
+  background: url('/assets/banner-pet.jpg') no-repeat center center/cover;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: white;
+  text-align: center;
+}
+
+.hero-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4); /* escurece a imagem */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.hero-btn {
+  background-color: #ff6f61;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  text-decoration: none;
+  font-size: 1rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.hero-btn:hover {
+  background-color: #e5584f;
+}
+.sobre-adocao {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 3rem 2rem;
+  background-color: #fefefe;
+  gap: 2rem;
+}
+
+.sobre-adocao .texto {
+  flex: 1;
+  min-width: 280px;
+}
+
+.sobre-adocao .texto h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.sobre-adocao .texto p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.sobre-adocao .imagem {
+  flex: 1;
+  min-width: 280px;
+  text-align: center;
+}
+
+.sobre-adocao img {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.como-funciona {
+  padding: 3rem 2rem;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+.como-funciona h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.etapas {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.etapa {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  width: 250px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.etapa .numero {
+  display: inline-block;
+  background-color: #ff8c42;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  font-weight: bold;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.etapa h3 {
+  margin: 0.5rem 0;
+  color: #333;
+}
+
+.etapa p {
+  color: #555;
+  font-size: 0.95rem;
+}
+.pets-destaque {
+  padding: 3rem 2rem;
+  background-color: #fff;
+  text-align: center;
+}
+
+.pets-destaque h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.pets-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.pet-card {
+  background-color: #fafafa;
+  padding: 1rem;
+  border-radius: 12px;
+  width: 200px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.pet-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.pet-card h3 {
+  margin: 0.5rem 0 0.3rem;
+  color: #444;
+}
+
+.pet-card p {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.btn-adotar {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #ff8c42;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.ajuda-voluntario {
+  background-color: #f9f9f9;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.ajuda-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.ajuda-container h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.ajuda-container p {
+  font-size: 1.1em;
+  margin-bottom: 40px;
+}
+
+.acoes-ajuda {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card-ajuda {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 30px;
+  flex: 1 1 250px;
+  max-width: 300px;
+}
+
+.card-ajuda h3 {
+  margin-bottom: 15px;
+}
+
+.card-ajuda button {
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.card-ajuda button:hover {
+  background-color: #ff4d4d;
+}
