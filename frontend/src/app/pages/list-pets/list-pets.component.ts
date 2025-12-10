@@ -16,8 +16,8 @@ export class ListPetsComponent implements OnInit {
 pets: Pet[] = [];
 petsFiltrados: Pet[] = [];
 
- filtroEspecie: string = '';
-  filtroCidade: string = '';
+filtroEspecie: string = '';
+filtroCidade: string = '';
 
   //cidades fixas para o filtro
   cidadesDisponiveis: string[] = ['Vila Nova de Gaia', 'Porto', 'Outros'];

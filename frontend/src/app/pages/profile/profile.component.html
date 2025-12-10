@@ -1,1 +1,17 @@
-<p>profile works!</p>
+<section class="perfil-container" *ngIf="nome && email">
+  <h2>Perfil do Utilizador</h2>
+
+  <div class="info-box">
+    <p><strong>Nome:</strong> {{ nome }}</p>
+    <p><strong>Email:</strong> {{ email }}</p>
+    <p *ngIf="role === 'admin'"><strong>Função:</strong> Administrador</p>
+    <p *ngIf="role !== 'admin'"><strong>Função:</strong> Utilizador</p>
+  </div>
+
+  <button class="btn-logout" (click)="logout()">Encerrar Sessão</button>
+</section>
+
+<section *ngIf="!nome || !email">
+  <p>Informações de perfil não encontradas. Por favor, faça login novamente.</p>
+  <button (click)="logout()">Voltar ao Login</button>
+</section>
