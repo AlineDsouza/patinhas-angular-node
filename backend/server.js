@@ -1,4 +1,4 @@
-import express, { request, response } from 'express'; 
+import express, { request, response } from 'express';
 // cria um servidor web para receber requisições HTTP GET, POST, DELETE, etc..
 import dotenv from 'dotenv';
 // permite usar variáveis de ambiente
@@ -17,7 +17,7 @@ import authRoutes from './routes/authRouters.js'; // rotas de login e registo
 import adocaoRouters from './routes/adocaoRouters.js'; // rotas de adoção
 
 
-const app = express(); 
+const app = express();
 // cria o servidor com express (variável app representa o servidor) 
 const PORT = 3000;
 //Define a porta onde o servidor vai rodar
@@ -31,21 +31,21 @@ app.use(express.urlencoded({ limit: "15mb", extended: true })); //limite 15mb ma
 // CONFIG CORS
 app.use(cors({
     origin: ['http://localhost:4200'], // Permite que front acesse a API
-    methods: ['GET','POST','PUT','DELETE','UPDATE'], // métodos permitido
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'UPDATE'], // métodos permitido
     credentials: true// permite trabalhar com autenticação
-}));              
+}));
 
 //CONEXÃO COM MONGODB
-const conectaDB = async () =>{ // função que tenta conectar ao banco de dados 
-    try{
-        await mongoose.connect(process.env.MONGO_URI); 
+const conectaDB = async () => { // função que tenta conectar ao banco de dados 
+    try {
+        await mongoose.connect(process.env.MONGO_URI);
         // acessa as informações do arquivo .env (process.env.MONGO_URI)
         console.log('Conectado ao MongoDB');
-    } catch(error) {
-        console.log('Erro ao conectar ao MongoDB', error.message); 
+    } catch (error) {
+        console.log('Erro ao conectar ao MongoDB', error.message);
         // se der erro aparecerá isto aqui
     }
-}; 
+};
 conectaDB();
 // chamando a função para conectar
 
@@ -59,5 +59,5 @@ app.use('/api/adocao', adocaoRouters);
 // INICIA O SERVIDOR
 // fica "escutando" na porta 3000 (definida na variável acima)
 app.listen(PORT, () => {
-console.log(`O servidor está rodando na porta`);
+    console.log(`O servidor está rodando na porta`);
 });

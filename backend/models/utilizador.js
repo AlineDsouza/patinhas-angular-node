@@ -5,8 +5,8 @@ const utilizadorSchema = new mongoose.Schema({
    nome: { type: String, required: true, trim: true },
    email: { type: String, required: true, unique: true, lowercase: true, trim: true },
    senha: { type: String, required: true, minlength: 6 },
-   role: { type: String, enum: ['user','admin'], default: 'user' }
-}, { timestamps: true });
+   role: { type: String, enum: ['user', 'admin'], default: 'user' }
+}, { timestamps: true });  // timestamps cria automaticamente createdAt e updatedAt
 
-// Esse modelo é utilizado para utilizadores no db
+// Esse modelo é utilizado para utilizadores no mongodb
 export default mongoose.model('Utilizador', utilizadorSchema);

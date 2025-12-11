@@ -12,7 +12,7 @@ const petsCrudSchema = new mongoose.Schema({
     raca:String,
     imageUrl: String,
     imageId: String,
-    especie: {type: String,enum: ['Cão', 'Gato'],required: true
+    especie: {type: String,enum: ['Cão', 'Gato'],required: true // só permite esses dois valores cão |gato
 }
 
 });

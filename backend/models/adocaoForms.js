@@ -1,6 +1,5 @@
 import mongoose from "mongoose"; // permite o q código converse com o banco de dados Mongodb
 
-
 // Cria um modelo que diz como os dados do formulário devem ir para o db
 const adocaoFormSchema = new mongoose.Schema({
   nomeAdotante: { type: String, required: true, trim: true },
