@@ -1,5 +1,6 @@
 import express from 'express';
 
+// importa funções do controller de pets
 import {
   criaPet,
   buscaPets,
@@ -10,10 +11,13 @@ import {
 
 const rotas = express.Router();
 
-rotas.post('/', criaPet);
-rotas.get('/', buscaPets);
-rotas.get('/:id', pegaPetId);
-rotas.put('/:id', editaPet);
-rotas.delete('/:id', deletaPet);
+// ROTAS DO Pet
+
+rotas.post('/', criaPet);// rota para criar um pet
+rotas.get('/', buscaPets);// rota para listar todos os pets
+rotas.get('/:id', pegaPetId);// rota para pegar um pet específico pelo ID
+rotas.put('/:id', editaPet);// rota para editar um pet existente
+rotas.delete('/:id', deletaPet);// rota para deletar um pet pelo ID
 
 export default rotas;
+// export: rotas pra usar no server
