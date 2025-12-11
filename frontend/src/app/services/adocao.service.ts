@@ -14,4 +14,9 @@ export class AdocaoService {
    enviarFormulario(dados: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/formulario-adocao`, dados);
   }
+
+  buscarTodosFormularios(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/formularios`);
+  }
+
 }

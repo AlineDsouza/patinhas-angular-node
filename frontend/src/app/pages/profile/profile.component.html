@@ -6,6 +6,18 @@
     <p><strong>Email:</strong> {{ email }}</p>
     <p *ngIf="role === 'admin'"><strong>Função:</strong> Administrador</p>
     <p *ngIf="role !== 'admin'"><strong>Função:</strong> Utilizador</p>
+  </div> <br>
+
+  <!-- Exibir formulários enviados (apenas para usuários comuns) -->
+  <div *ngIf="role === 'user' && formulariosDoUtilizador.length > 0" class="form-usuario">
+      <div *ngFor="let form of formulariosDoUtilizador" class="form-card">
+        <h3>Pedido de Adoção</h3> <br>
+      <p><strong>Telefone:</strong> {{ form.telefone }}</p>
+      <p><strong>Justificativa:</strong> {{ form.justificativa }}</p>
+      <p><strong>Experiência com Pets:</strong> {{ form.experienciaAnterior }}</p>
+      <p><strong>Rotina com o pet:</strong> {{ form.rotinaPet }}</p>
+      <hr>
+    </div>
   </div>
 
   <button class="btn-logout" (click)="logout()">Encerrar Sessão</button>
@@ -15,3 +27,4 @@
   <p>Informações de perfil não encontradas. Por favor, faça login novamente.</p>
   <button (click)="logout()">Voltar ao Login</button>
 </section>
+

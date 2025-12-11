@@ -1,1 +1,47 @@
-<p>Admin Dashboard</p>
+<h2>Painel do Administrador</h2>
+
+<section class="admin-info">
+    
+    <div class="painel-esquerdo">
+        <p><strong>Admin:</strong> {{ nome }}</p>
+        <p><strong>Email:</strong> {{ email }}</p>
+        <button (click)="logout()">Logout</button>
+    </div>
+    
+    
+    
+    
+    
+    <div class="painel-direito">
+        <div class="pets-cadastrados">
+
+
+            <div class="acoes">
+              <button (click)="irParaCrud()">Gestão de Pets</button>
+            </div>
+     
+    <h3>Pets Cadastrados ({{ pets.length }})</h3>
+
+    <div class="pet-card" *ngFor="let pet of pets">
+      <img [src]="pet.imageUrl" alt="Foto de {{ pet.nome }}" class="pet-foto" />
+      <div class="pet-dados">
+        <p><strong>{{ pet.nome }}</strong></p>
+        <p>{{ pet.especie }}</p>
+        <p>{{ pet.peso }} Kg</p>
+        <p>{{ pet.cidade }}</p>
+      </div>
+    </div>
+</div>
+<h3>Pedidos de Adoção ({{ formularios.length }})</h3>
+<ul>
+  <li *ngFor="let f of formularios">
+    <strong>{{ f.nomeAdotante }}</strong> - {{ f.emailAdotante }}
+  </li>
+</ul>
+</div>
+
+
+
+
+
+</section>
