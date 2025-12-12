@@ -59,5 +59,5 @@ app.use('/api/adocao', adocaoRouters);
 // INICIA O SERVIDOR
 // fica "escutando" na porta 3000 (definida na variável acima)
 app.listen(PORT, () => {
-    console.log(`O servidor está rodando na porta`);
+    console.log(`O servidor está rodando!`);
 });

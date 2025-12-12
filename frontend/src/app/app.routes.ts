@@ -32,5 +32,5 @@ export const routes: Routes = [
     {path:'crud-pets',component: CrudPetsComponent},
     {path:'',redirectTo: 'login',pathMatch:'full'},
     {path:'**',redirectTo: 'login'} //quando a rota não for encontrada redireciona para home
-]; //Necessário uma configuração para que possa ser direcionado paras as rotas
+]; 
 
