@@ -3,10 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { PetService } from '../../services/pet.service';
 import { Pet } from '../../models/Pet';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-crud-pets',
-  imports: [ReactiveFormsModule,NgIf, CommonModule],
+  imports: [ReactiveFormsModule,NgIf, CommonModule, RouterLink],
   templateUrl: './crud-pets.component.html',
   styleUrl: './crud-pets.component.css'
 })

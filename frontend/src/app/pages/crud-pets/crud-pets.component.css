@@ -1,0 +1,19 @@
+.btn-admin{
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    float: right;
+    cursor: pointer;
+    border-radius: 5px;
+     background-color: #0f6e47;
+    color: white;
+    cursor: pointer;
+    margin: 1rem;
+}
+.btn-admin:hover {
+  background-color: #1faa6c;
+}
+h2 {
+  text-align: center;
+}

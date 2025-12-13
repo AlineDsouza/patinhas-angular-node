@@ -45,7 +45,7 @@ export class LoginComponent {
 
       // REDIRECIONAMENTO AUTOMÁTICO
       if (resposta.role === 'admin') {
-        this.router.navigate(['/crud-pets']);
+        this.router.navigate(['/admin']);
         console.log("ROLE:", resposta.role);
 
       } else {

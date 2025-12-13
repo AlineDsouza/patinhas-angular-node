@@ -23,4 +23,11 @@ export class HeaderComponent {
     }
   }
 
+  logout() {
+  localStorage.clear();
+  this.utilizadorNome = null;
+  this.utilizadorRole = null;
+}
+
+
 }

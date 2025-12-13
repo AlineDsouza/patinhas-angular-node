@@ -1,5 +1,10 @@
 <h2>Cadastro</h2>
 
+<button [routerLink]="['/admin']" class="btn-admin">
+  Painel do Administrador
+</button>
+
+
 <!-- MENSAGENS -->
 <div *ngIf="mensagemSucesso" class="msg-sucesso">
   {{ mensagemSucesso }}

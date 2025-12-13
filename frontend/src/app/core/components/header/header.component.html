@@ -9,23 +9,11 @@
   </nav>
   
   <div *ngIf="utilizadorNome">
-    <p>Olá, {{ utilizadorNome }}!</p>
-    <p *ngIf="utilizadorRole === 'admin'">Perfil: {{ utilizadorRole }}</p>
+  <p *ngIf="utilizadorRole === 'admin'">Perfil: {{ utilizadorRole }}</p>
   </div>
   
-  <button><a routerLink="/login">Login / Sign Up</a></button>
-  <a routerLink="/perfil">Perfil</a>
+  <button><a routerLink="/login" *ngIf="!utilizadorNome" (click)="logout()" >Login / Sign Up</a></button>
+  
+  <a routerLink="/perfil" *ngIf="utilizadorNome">Perfil</a>
+  <a routerLink="/admin"  *ngIf="utilizadorRole === 'admin'">Admin</a>
 </header>
-
-
-<nav>
-<br>
-
-  <!-- PAGES -->
-  <a routerLink="/admin">Admin</a>
-  <a routerLink="/crud-pets">crud-pets</a>
-
-
-</nav>
-
-<br> <br>
