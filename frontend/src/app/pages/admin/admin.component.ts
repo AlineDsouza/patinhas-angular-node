@@ -5,10 +5,11 @@ import { AdocaoService } from '../../services/adocao.service';
 import { AdocaoForm } from '../../models/adocao-form';
 import { Router } from '@angular/router';
 import { NgFor, NgIf } from '@angular/common';
+import { HeaderComponent } from '../../core/components/header/header.component';
 
 @Component({
   selector: 'app-admin',
-  imports: [NgFor,NgIf],
+  imports: [NgFor,NgIf,HeaderComponent],
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.css'
 })

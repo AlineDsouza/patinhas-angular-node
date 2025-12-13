@@ -3,10 +3,11 @@ import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormGroup,FormControl, Validators } from '@angular/forms';
 import { AdocaoService } from '../../services/adocao.service';
 import { OnInit } from '@angular/core';
+import { HeaderComponent } from '../../core/components/header/header.component';
 
 @Component({
   selector: 'app-adoption-form',
-  imports: [CommonModule, ReactiveFormsModule,NgIf],
+  imports: [CommonModule, ReactiveFormsModule,NgIf,HeaderComponent],
   templateUrl: './adoption-form.component.html',
   styleUrl: './adoption-form.component.css'
 })

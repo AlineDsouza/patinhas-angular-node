@@ -1,6 +1,8 @@
 import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router'; //Faz com que eu possa referenciar as rotas definidas no app.routes.ts
+import { AuthService } from '../../../services/auth.service';
+
 
 @Component({
   selector: 'app-header',

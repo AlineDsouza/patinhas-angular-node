@@ -5,10 +5,11 @@ import { Router } from '@angular/router';
 import { Pet } from '../../models/Pet';
 import { PetService } from '../../services/pet.service';
 import { OnInit } from '@angular/core';
+import { HeaderComponent } from '../../core/components/header/header.component';
 
 @Component({
   selector: 'app-list-pets',
-  imports: [CommonModule,ReactiveFormsModule, FormsModule],
+  imports: [CommonModule,ReactiveFormsModule, FormsModule,HeaderComponent],
   templateUrl: './list-pets.component.html',
   styleUrl: './list-pets.component.css'
 })

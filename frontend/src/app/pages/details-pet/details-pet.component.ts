@@ -4,12 +4,13 @@ import { CommonModule } from '@angular/common';
 import { PetService } from '../../services/pet.service';
 import { Pet } from '../../models/Pet';
 import { OnInit } from '@angular/core';
+import { HeaderComponent } from '../../core/components/header/header.component';
 
 
 
 @Component({
   selector: 'app-details-pet',
-  imports: [RouterLink, CommonModule],
+  imports: [RouterLink, CommonModule,HeaderComponent],
   templateUrl: './details-pet.component.html',
   styleUrl: './details-pet.component.css'
 })

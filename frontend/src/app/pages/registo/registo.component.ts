@@ -3,10 +3,11 @@ import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angula
 import { AuthService } from '../../services/auth.service';
 import { CommonModule, NgIf } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { HeaderComponent } from '../../core/components/header/header.component';
 
 @Component({
   selector: 'app-registo',
-  imports: [ReactiveFormsModule, NgIf, CommonModule,RouterLink],
+  imports: [ReactiveFormsModule, NgIf, CommonModule,RouterLink,HeaderComponent],
   templateUrl: './registo.component.html',
   styleUrl: './registo.component.css'
 })

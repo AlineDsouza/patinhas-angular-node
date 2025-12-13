@@ -3,10 +3,11 @@ import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { Router, RouterLink, RouterModule } from '@angular/router';
 import { AdocaoService } from '../../services/adocao.service';
+import { HeaderComponent } from '../../core/components/header/header.component';
 
 @Component({
   selector: 'app-profile',
-  imports: [RouterModule, RouterLink, NgIf, NgFor],
+  imports: [RouterModule, RouterLink, NgIf, NgFor, HeaderComponent],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })
