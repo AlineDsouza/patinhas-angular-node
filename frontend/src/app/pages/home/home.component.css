@@ -1,6 +1,6 @@
 .hero-banner {
-  background: url('/assets/banner-pet.jpg') no-repeat center center/cover;
-  height: 80vh;
+  background: url('../../../assets/img/banner.jpg') no-repeat center center/cover;
+  height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,7 +13,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.4); /* escurece a imagem */
+  background: rgba(0, 0, 0, 0.452); /* escurece a imagem */
 }
 
 .hero-content {
@@ -155,15 +155,18 @@
   background-color: #fafafa;
   padding: 1rem;
   border-radius: 12px;
-  width: 200px;
+  width: 280px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 .pet-card img {
   width: 100%;
-  height: auto;
-  border-radius: 8px;
+  height: 250px;   
+  object-fit: cover; 
+  border-radius: var(--raio-medio);
+  margin-bottom: var(--espaco-2);
 }
+
 
 .pet-card h3 {
   margin: 0.5rem 0 0.3rem;

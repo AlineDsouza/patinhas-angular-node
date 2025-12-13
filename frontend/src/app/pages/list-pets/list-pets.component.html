@@ -1,34 +1,49 @@
-<h2>Lista de Amigos Disponíveis</h2><br>
-<p></p>
+<h2>Lista de Amigos Disponíveis</h2>
 
+<section class="layout-pets">
 
-<!-- Filtros -->
-<div class="filtros">
-  <label>Espécie:</label>
-  <select [(ngModel)]="filtroEspecie">
-    <option value="">Todos</option>
-    <option value="Cão">Cão</option>
-    <option value="Gato">Gato</option>
-  </select>
+  <!-- ================= FILTROS ================= -->
+  <aside class="filtros">
 
-  <label>Cidade:</label>
-  <select [(ngModel)]="filtroCidade">
-    <option value="">Todos os pets</option>
-    <option value="Vila Nova de Gaia">Vila Nova de Gaia</option>
-    <option value="Porto">Porto</option>
-    <option value="Outros">Outros</option>
-  </select>
+    <label>Espécie:</label>
+    <select [(ngModel)]="filtroEspecie">
+      <option value="">Todos</option>
+      <option value="Cão">Cão</option>
+      <option value="Gato">Gato</option>
+    </select>
 
-  <button (click)="aplicarFiltro()">Filtrar</button>
-</div>
+    <label>Cidade:</label>
+    <select [(ngModel)]="filtroCidade">
+      <option value="">Todos os pets</option>
+      <option value="Vila Nova de Gaia">Vila Nova de Gaia</option>
+      <option value="Porto">Porto</option>
+      <option value="Outros">Outros</option>
+    </select>
 
-<!-- Listagem -->
-<div class="container">
-  <div *ngFor="let item of petsFiltrados" class="card">
-    <h2>Nome: {{ item.nome }}</h2>
-    <img [src]="item.imageUrl" alt="Imagem do pet">
-    <button type="button" class="button" (click)="verDetalhe(item._id)">Me conheça!</button>
-  </div>
-</div>
+    <button (click)="aplicarFiltro()">Filtrar</button>
 
+  </aside>
 
+  <!-- ================= LISTAGEM ================= -->
+  <main class="lista-pets">
+
+    <div class="container">
+
+      <div *ngFor="let item of petsFiltrados" class="card">
+        <h3>{{ item.nome }}</h3>
+
+        <img [src]="item.imageUrl" alt="Imagem do pet">
+
+        <button
+          type="button"
+          class="button"
+          (click)="verDetalhe(item._id)">
+          Me conheça!
+        </button>
+      </div>
+
+    </div>
+
+  </main>
+
+</section>

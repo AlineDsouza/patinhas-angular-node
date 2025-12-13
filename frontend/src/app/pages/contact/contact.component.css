@@ -55,3 +55,32 @@
   border-radius: 8px;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
 }
+
+.lista-telefones {
+  display: flex;
+  justify-content: center;
+  gap: var(--espaco-3);
+  flex-wrap: wrap;
+}
+
+.cartao-telefone {
+  width: 280px;
+  text-align: center;
+}
+
+.cartao-telefone h3 {
+  color: var(--cor-destaque);
+  margin-bottom: 4px;
+}
+
+.cartao-telefone span {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--cor-texto-suave);
+  margin-bottom: var(--espaco-2);
+}
+
+.cartao-telefone strong {
+  font-size: 1.1rem;
+  color: var(--cor-texto-principal);
+}

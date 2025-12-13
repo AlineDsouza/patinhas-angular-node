@@ -1,8 +1,5 @@
 <h2>Formulário de Adoção</h2>
 
-<!-- MENSAGENS -->
-<div *ngIf="mensagemSucesso" class="msg-sucesso">{{ mensagemSucesso }}</div>
-<div *ngIf="mensagemErro" class="msg-erro">{{ mensagemErro }}</div>
 
 <form [formGroup]="formAdocao">
 
@@ -46,6 +43,10 @@
   <!-- Justificativa -->
   <label>Por que deseja adotar este pet?</label>
   <textarea formControlName="justificativa"></textarea>
+
+<!-- MENSAGENS -->
+<div *ngIf="mensagemSucesso" class="msg-sucesso">{{ mensagemSucesso }}</div>
+<div *ngIf="mensagemErro" class="msg-erro">{{ mensagemErro }}</div>
 
   <br>
   <button type="button" (click)="enviar()">Enviar Formulário</button>

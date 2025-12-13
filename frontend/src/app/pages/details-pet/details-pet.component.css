@@ -1,61 +1,61 @@
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 2rem;
-  background-color: #f9f9f9;
+/* ===============================
+   LAYOUT GERAL
+================================*/
+.secao-pet {
+  background-color: var(--cor-fundo-claro);
+  padding-bottom: 5em;
+  padding-top: 2em;
 }
 
-.esquerdo, .direito {
-  flex: 1 1 300px;
-  max-width: 450px;
+.detalhe-pet {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espaco-4);
+  align-items: start;
 }
 
-.card1 img {
+/* IMAGEM */
+.pet-imagem img {
   width: 100%;
   height: auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  border-radius: var(--raio-grande);
 }
 
-.card2 {
-  background-color: #ffffff;
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+/* INFORMAÇÕES  */
+.pet-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-2);
 }
 
-.card2 p {
-  font-size: 1rem;
-  margin: 0.6rem 0;
-  color: #444;
+.descricao {
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: var(--cor-texto-suave);
+  margin: auto;
 }
 
-.card2 p strong {
-  color: #333;
+/* Lista organizada */
+.lista-info {
+  list-style: none;
+  padding: 0;
 }
 
-h2 {
-  text-align: center;
-  color: #444;
-  font-size: 2rem;
-  margin-bottom: 1rem;
+.lista-info li {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--cor-borda);
+  font-size: 0.95rem;
 }
 
-.btn {
-  margin-top: 1.5rem;
-  padding: 0.8rem 1.5rem;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+/*  BOTÃO */
+.acao-adocao {
+  margin-top: var(--espaco-3);
+  margin: auto;
 }
 
-.btn:hover {
-  background-color: #45a049;
+/*  RESPONSIVO  */
+@media (max-width: 768px) {
+  .detalhe-pet {
+    grid-template-columns: 1fr;
+  }
 }

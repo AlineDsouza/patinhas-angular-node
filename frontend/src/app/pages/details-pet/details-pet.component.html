@@ -1,22 +1,40 @@
-<h2 *ngIf="pet">{{ pet.nome}}</h2>
 
-<section class="container" *ngIf="pet">
-  <div class="esquerdo">
-    <div class="card1">
+<section class="secao-pet" *ngIf="pet">
+  <h2 *ngIf="pet" class="texto-centro mb-3">
+    {{ pet.nome }}
+  </h2> <br>
+  <div class="conteiner detalhe-pet">
+
+    <!-- IMAGEM -->
+    <div class="pet-imagem cartao">
       <img [src]="pet.imageUrl" alt="Imagem do pet" />
     </div>
-  </div>
 
-  <div class="direito">
-    <div class="card2">
-      <p><strong>Descrição:</strong> {{ pet.descricao }}</p>
-      <p><strong>Idade:</strong> {{ pet.idade }} anos</p>
-      <p><strong>Peso:</strong> {{ pet.peso }} kg</p>
-      <p><strong>Raça:</strong> {{ pet.raca }}</p>
-      <p><strong>Vacinado:</strong> {{ pet.vacinado ? 'Sim' : 'Não' }}</p>
-      <p><strong>Castrado:</strong> {{ pet.castrado ? 'Sim' : 'Não' }}</p>
+    <!-- INFORMAÇÕES -->
+    <div class="pet-info cartao">
 
-      <button class="btn" [routerLink]="['/formularioAdocao']">Quero adotar</button>
+      <p class="descricao">
+        {{ pet.descricao }}
+      </p>
+
+      <ul class="lista-info">
+        <li><strong>Idade:</strong> {{ pet.idade }} anos</li>
+        <li><strong>Peso:</strong> {{ pet.peso }} kg</li>
+        <li><strong>Raça:</strong> {{ pet.raca }}</li>
+        <li><strong>Vacinado:</strong> {{ pet.vacinado ? 'Sim' : 'Não' }}</li>
+        <li><strong>Castrado:</strong> {{ pet.castrado ? 'Sim' : 'Não' }}</li>
+      </ul>
+
+      <div class="acao-adocao"> <br>
+        <button
+          class="botao"
+          [routerLink]="['/formularioAdocao']">
+          Quero adotar
+        </button>
+      </div>
+
     </div>
+
   </div>
 </section>
+

@@ -1,14 +1,173 @@
-/* You can add global styles to this file, and also import other style files */
-*{
-    padding: 0;
-    margin: 0;
 
-    /*Variáveis*/
-    --fundo: rgb(223, 206, 206);
-    --verde:rgb(149, 185, 143);
-    --vermelho:rgb(179, 45, 28);
-    --preto:rgb(0, 0, 0);
-    
+/* RESET GLOBAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+    /* Cores principais */
+  --cor-primaria: #ff6f61;
+  --cor-primaria-hover: #e5584f;
+
+  --cor-secundaria: #ff8c42;
+  --cor-secundaria-hover: #e67a2e;
+
+  --cor-destaque: #ff6b6b;
+
+  /* Fundos */
+  --cor-fundo-principal: #ffffff;
+  --cor-fundo-claro: #f4f4f4;
+  --cor-fundo-secao: #fefefe;
+
+  /* Texto */
+  --cor-texto-principal: #333;
+  --cor-texto-suave: #555;
+
+  /* UI */
+  --cor-borda: #ddd;
+  --raio-pequeno: 6px;
+  --raio-medio: 10px;
+  --raio-grande: 14px;
+
+  /* Espaçamento */
+  --espaco-1: 0.5rem;
+  --espaco-2: 1rem;
+  --espaco-3: 1.5rem;
+  --espaco-4: 2.5rem;
+
+  /*    Sombras */
+  --sombra-leve: 0 2px 6px rgba(0,0,0,0.08);
+  --sombra-media: 0 4px 12px rgba(0,0,0,0.12);
 }
 
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Poppins', 'Inter', Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+/*  TIPOGRAFIA   */
+h1 {
+  font-size: 3rem;
+  color: #fff;
+}
+
+h2 {
+  font-size: 2rem;
+  color: var(--cor-texto-principal);
+  margin-bottom: var(--espaco-2);
+}
+
+h3 {
+  font-size: 1.2rem;
+  color: var(--cor-texto-principal);
+}
+
+p {
+  font-size: 1rem;
+  color: var(--cor-texto-suave);
+  margin-bottom: var(--espaco-2);
+}
+
+/*  SEÇÕES  */
+section {
+  padding: var(--espaco-4) var(--espaco-2);
+  background-color: var(--cor-fundo-secao);
+}
+
+.conteiner {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* BOTÕES (PADRÃO DO SITE)  */
+
+button,
+.botao {
+  background-color: var(--cor-primaria);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.6rem;
+  border-radius: var(--raio-medio);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--sombra-leve);
+}
+
+button:hover,
+.botao:hover {
+  background-color: var(--cor-primaria-hover);
+  transform: translateY(-2px);
+}
+
+/* Botão secundário */
+.botao-secundario {
+  background-color: var(--cor-secundaria);
+}
+
+.botao-secundario:hover {
+  background-color: var(--cor-secundaria-hover);
+}
+
+/* FORMULÁRIOS  */
+label {
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  display: block;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border-radius: var(--raio-pequeno);
+  border: 1px solid var(--cor-borda);
+  font-size: 0.95rem;
+  margin-bottom: var(--espaco-2);
+  transition: border-color 0.3s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--cor-primaria);
+}
+
+/*  CARTÕES */
+.cartao,
+.pet-card,
+.etapa,
+.card-ajuda {
+  background-color: #fff;
+  border-radius: var(--raio-grande);
+  padding: var(--espaco-2);
+  box-shadow: var(--sombra-media);
+}
+
+/*  IMAGENS */
+img {
+  max-width: 100%;
+  display: block;
+  border-radius: var(--raio-medio);
+}
+
+/* ÚTEIS  */
+.texto-centro {
+  text-align: center;
+}
+
+.mt-2 { margin-top: var(--espaco-2); }
+.mt-3 { margin-top: var(--espaco-3); }
+
+.mb-2 { margin-bottom: var(--espaco-2); }
+.mb-3 { margin-bottom: var(--espaco-3); }
 

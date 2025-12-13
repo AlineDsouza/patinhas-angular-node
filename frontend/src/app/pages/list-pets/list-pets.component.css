@@ -1,70 +1,130 @@
-h2 {
-  text-align: center;
-  font-size: 28px;
-  margin-bottom: 20px;
-  color: #444;
+/* ===============================
+   LAYOUT GERAL
+================================*/
+.layout-pets {
+  display: flex;
+  gap: var(--espaco-4);
+  align-items: flex-start; /* cresce conforme conteúdo */
 }
 
+/* ===============================
+   FILTROS (ESQUERDA)
+================================*/
+.filtros {
+  width: 280px;
+  background-color: var(--cor-fundo-principal);
+  padding: var(--espaco-3);
+  border-radius: var(--raio-grande);
+  box-shadow: var(--sombra-media);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-2);
+}
+
+.filtros label {
+  font-weight: 600;
+}
+
+.filtros select {
+  padding: 0.5rem;
+  border-radius: var(--raio-pequeno);
+  border: 1px solid var(--cor-borda);
+}
+
+/* ===============================
+   LISTAGEM (DIREITA)
+================================*/
+.lista-pets {
+  flex: 1;
+  background-color: var(--cor-fundo-principal);
+  padding: var(--espaco-3);
+  border-radius: var(--raio-grande);
+  box-shadow: var(--sombra-media);
+  /* ❌ removido overflow-y */
+}
+
+/* ===============================
+   GRID DE PETS
+================================*/
 .container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 24px;
-  padding: 20px;
+  gap: var(--espaco-3);
 }
 
+/* ===============================
+   CARD DO PET
+================================*/
 .card {
+  width: 220px;
   background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  width: 280px;
-  padding: 16px;
+  border-radius: var(--raio-grande);
+  box-shadow: var(--sombra-leve);
+  padding: var(--espaco-2);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  transition: transform 0.3s;
 }
 
-.card:hover {
-  transform: translateY(-5px);
+.card h3 {
+  margin-bottom: var(--espaco-1);
 }
 
 .card img {
   width: 100%;
-  height: 220px;
+  height: 300px;
   object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 12px;
+  border-radius: var(--raio-medio);
+  margin-bottom: var(--espaco-2);
 }
 
-.card h2 {
-  font-size: 20px;
-  color: #333;
-  margin-bottom: 10px;
+.card button {
+  margin-top: auto;
 }
 
-.button {
-  background-color: #3a0a68f1;
-  color: #fff;
-  border: none;
-  padding: 10px 14px;
-  border-radius: 6px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .layout-pets {
+    flex-direction: column;
+  }
 
-.button:hover {
-  background-color: #774fe7;
+  .filtros {
+    width: 100%;
+  }
+
+
 }
-.filtros {
+/* Container dos cards */
+.container {
   display: flex;
-  gap: 1rem;
-  align-items: center;
-  margin-bottom: 2rem;
   flex-wrap: wrap;
+  gap: var(--espaco-3);
+  justify-content: flex-start;
 }
 
-.filtros select, .filtros button {
-  padding: 0.5rem;
-  border-radius: 4px;
-  border: 1px solid #ccc;
+/* Cada card ocupa 1/3 da linha */
+.card {
+  flex: 0 0 calc(33.333% - var(--espaco-3));
+  max-width: calc(33.333% - var(--espaco-3));
+}
+
+/* RESPONSIVO */
+
+/* Tablet → 2 cards por linha */
+@media (max-width: 1024px) {
+  .card {
+    flex: 1 1 calc(50% - var(--espaco-3));
+    max-width: calc(50% - var(--espaco-3));
+  }
+}
+
+/* Mobile → 1 card por linha */
+@media (max-width: 600px) {
+  .card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
 }
