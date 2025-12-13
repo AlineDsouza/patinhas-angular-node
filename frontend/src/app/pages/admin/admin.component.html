@@ -17,12 +17,12 @@
 
 
             <div class="acoes">
-              <button (click)="irParaCrud()">Gestão de Pets</button>
+              <button (click)="irParaCrud()" class="botao">Gestão de Pets</button>
             </div>
      
-    <h3>Pets Cadastrados ({{ pets.length }})</h3>
-
-    <div class="pet-card" *ngFor="let pet of pets">
+            <h3>Pets Cadastrados ({{ pets.length }})</h3>
+            
+            <div class="pet-card" *ngFor="let pet of pets">
       <img [src]="pet.imageUrl" alt="Foto de {{ pet.nome }}" class="pet-foto" />
       <div class="pet-dados">
         <p><strong>{{ pet.nome }}</strong></p>
