@@ -13,7 +13,7 @@
   <p *ngIf="utilizadorRole === 'admin'">Perfil: {{ utilizadorRole }}</p>
   </div>
   
-  <button><a routerLink="/login" *ngIf="!utilizadorNome" (click)="logout()" >Login / Sign Up</a></button>
+  <button><a routerLink="/login" *ngIf="!utilizadorNome" (click)="logout()" class="btn-login">Login / Sign Up</a></button>
   
   <a routerLink="/perfil" *ngIf="utilizadorNome">Perfil</a>
   <a routerLink="/admin"  *ngIf="utilizadorRole === 'admin'">Admin</a>
