@@ -34,12 +34,10 @@
 .footer-section a:hover {
   text-decoration: underline;
 }
-
 .footer-section ul {
   list-style: none;
   padding: 0;
 }
-
 .footer-section ul li {
   margin-bottom: 8px;
 }
@@ -47,13 +45,10 @@
   display: flex;
   gap: 12px;
 }
-
 .social-icons img {
   width: 30px;
   height: 30px;
 }
-
-
 .footer-bottom {
   text-align: center;
   padding-top: 20px;

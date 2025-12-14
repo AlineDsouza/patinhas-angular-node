@@ -6,8 +6,6 @@ import { Pet } from '../../models/Pet';
 import { OnInit } from '@angular/core';
 import { HeaderComponent } from '../../core/components/header/header.component';
 
-
-
 @Component({
   selector: 'app-details-pet',
   imports: [RouterLink, CommonModule,HeaderComponent],

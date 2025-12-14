@@ -181,18 +181,15 @@ h2{
   border: 1px solid #e9e9e9;
  
 }
-
 .tabela p {
   font-size: 1.3rem;
   font-weight: 600;
   color: var(--cor-texto-principal);
   margin-bottom: 1rem;
 }
-
 /*  TABELA */
 .table-coluna {
   width: 100%;
-
   border-spacing: 0 10px; /* Espaço entre linhas */
   font-size: 0.95rem;
 }
@@ -206,27 +203,23 @@ h2{
   text-align: left;
   border-radius: 8px 8px 0 0;
 }
-
 /* Linha */
 .table-coluna tbody tr {
   background: #fafafa;
   transition: 0.25s ease;
   border-radius: 10px;
 }
-
 .table-coluna tbody tr:hover {
   background: #ffe7d1;
   transform: scale(1.01);
   box-shadow: 0 4px 12px rgba(255, 140, 66, 0.25);
 }
-
 /* Células */
 .table-coluna td {
   padding: 0.8rem;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
 }
-
 /* FOTO DA TABELA */
 .table-coluna img {
   width: 55px;
@@ -235,7 +228,6 @@ h2{
   border-radius: 10px;
   box-shadow: var(--sombra-leve);
 }
-
 /* BOTÃO SELECIONAR */
 .btn-selecionar button {
   background: var(--cor-secundaria);
@@ -247,14 +239,10 @@ h2{
   font-size: 0.85rem;
   transition: 0.25s;
 }
-
 .btn-selecionar button:hover {
   background: var(--cor-secundaria-hover);
   transform: translateY(-2px);
 }
-
-
-
 @media (max-width: 800px) {
   .table-coluna th,
   .table-coluna td {

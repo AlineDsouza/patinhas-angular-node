@@ -17,7 +17,7 @@ h2, h3{
 /* Coluna da imagem */
 .form-image {
   flex: 1;
-  position: relative;           /* necessário para o overlay funcionar */
+  position: relative;      
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -31,11 +31,11 @@ h2, h3{
   border-radius: 10px;
   padding: 1rem;
   min-height: 350px;
-  color: white;    /* texto fica visível no fundo escuro */
+  color: white;   
   overflow: hidden;
 }
 
-/* Overlay escuro */
+/*  escuro */
 .form-image::before {
   content: "";
   position: absolute;
@@ -44,14 +44,11 @@ h2, h3{
   z-index: 1;
 }
 
-/* Para garantir que o texto fique acima do overlay */
+/* Para garantir que o texto fique acima de tudo */
 .form-image * {
   position: relative;
   z-index: 2;
 }
-
-
-
 
 /* Formulário */
 form {

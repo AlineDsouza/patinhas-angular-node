@@ -63,11 +63,6 @@ onFileSelected(event: any) {
   reader.readAsDataURL(this.selectedFile);
 }
 
-
-
-
-
-
   ngOnInit(): void {
     this.listarPets();
   }
@@ -176,5 +171,4 @@ selecionar(indice: number): void {
   this.previewImagem = null;
   this.selectedFile = null;
   this.indice = -1;
-  }}
-  
+  }} 

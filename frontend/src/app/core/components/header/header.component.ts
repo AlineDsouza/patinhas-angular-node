@@ -31,5 +31,4 @@ export class HeaderComponent {
   this.utilizadorRole = null;
 }
 
-
 }

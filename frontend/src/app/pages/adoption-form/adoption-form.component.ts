@@ -49,7 +49,7 @@ export class AdoptionFormComponent implements OnInit {
         this.mensagemSucesso = res.msg || 'Formulário enviado com sucesso!';
         this.mensagemErro = '';
         this.formAdocao.reset();
-        this.ngOnInit(); // repopula email
+        this.ngOnInit(); //  email
       },
       error: (err) => {
         this.mensagemErro = err.error?.msg || 'Erro ao enviar o formulário.';

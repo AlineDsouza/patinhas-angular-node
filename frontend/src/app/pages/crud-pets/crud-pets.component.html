@@ -28,7 +28,6 @@
   <input type="file" (change)="onFileSelected($event)" accept="image/*"> <br>
 
 
-
   <!--NOME-->
   <p class="requiredCampo"
    *ngIf="formCrudPets.get('nome')?.hasError('required') && formCrudPets.get('nome')?.touched">
@@ -217,11 +216,6 @@
 
   </table> <br><br><br>
 
-
 </div>
 
 </form>
-
-
-
-

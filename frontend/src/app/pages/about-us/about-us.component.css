@@ -38,13 +38,6 @@ h2{
   font-size: 1rem;
   margin-bottom: 1.5rem;
 }
-
-
-
-
-
-
-
 .depoimentos {
   margin-top: 2rem;
   padding: 4rem 2rem;
@@ -89,11 +82,6 @@ h2{
   display: block;
   text-align: right;
 }
-
-
-
-
-
 .banner-sobre {
   height: 60vh;
   background: url("https://images.unsplash.com/photo-1568640347023-a616a30bc3bd?q=80&w=1173&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
@@ -113,17 +101,14 @@ h2{
   inset: 0;
   background: rgba(0, 0, 0, 0.35);
 }
-
 .banner-conteudo {
   position: relative;
   z-index: 2;
 }
-
 .banner-conteudo h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
 }
-
 .banner-conteudo p {
   font-size: 1.2rem;
   max-width: 600px;

@@ -12,11 +12,11 @@ export class AuthService {
 
 
   constructor(private http: HttpClient) {}
- /* ====== REGISTO ====== */
+ /*  REGISTO  */
   registrar(dados: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/registo`, dados);
   }
- /* ====== LOGIN ====== */
+ /*  LOGIN  */
   async login(dados: any) {
     return await lastValueFrom(
       this.http.post(`${this.apiUrl}/login`, dados)
