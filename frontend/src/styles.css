@@ -1,11 +1,17 @@
-
-/* RESET GLOBAL */
+/* =====================================
+   RESET GLOBAL
+===================================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
 
-    /* Cores principais */
+/* =====================================
+   VARIÁVEIS GLOBAIS
+===================================== */
+:root {
+  /* Cores principais */
   --cor-primaria: #ff6f61;
   --cor-primaria-hover: #e5584f;
 
@@ -23,22 +29,23 @@
   --cor-texto-principal: #333;
   --cor-texto-suave: #555;
 
-  /* UI */
+  /* Bordas e radius */
   --cor-borda: #ddd;
   --raio-pequeno: 6px;
   --raio-medio: 10px;
   --raio-grande: 14px;
 
-  /* Espaçamento */
+  /* Espaçamentos */
   --espaco-1: 0.5rem;
   --espaco-2: 1rem;
   --espaco-3: 1.5rem;
   --espaco-4: 2.5rem;
 
-  /*    Sombras */
+  /* Sombras */
   --sombra-leve: 0 2px 6px rgba(0,0,0,0.08);
   --sombra-media: 0 4px 12px rgba(0,0,0,0.12);
 }
+
 
 html {
   font-size: 16px;

@@ -1,6 +1,5 @@
 .contato-container {
   padding: 4rem 2rem;
-  font-family: Arial, sans-serif;
   background-color: #f9f9f9;
   text-align: center;
 }
@@ -83,4 +82,31 @@
 .cartao-telefone strong {
   font-size: 1.1rem;
   color: var(--cor-texto-principal);
+}
+.banner-contato {
+  height: 60vh;
+  background: url("https://images.pexels.com/photos/2558605/pexels-photo-2558605.jpeg") 
+              no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: white;
+}
+
+/* camada de escurecimento  */
+.banner-contato::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+}
+
+.banner-conteudo {
+  position: relative;
+  z-index: 2;
+}
+
+.banner-conteudo h1 {
+  font-size: 3rem;
 }
