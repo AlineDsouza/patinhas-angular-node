@@ -1,0 +1,113 @@
+/* Contêiner principal */
+.form-container {
+  max-width: 70%;
+  height: 80vh;
+  margin: 2rem auto;
+  padding: 1rem;
+  padding-top: 3rem;
+  display: flex;
+  gap: 2rem;
+}
+
+h2, h3{
+    color: aliceblue;
+}
+
+
+/* Coluna da imagem */
+.form-image {
+  flex: 1;
+  position: relative;           /* necessário para o overlay funcionar */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-image: url("https://images.unsplash.com/photo-1518717758536-85ae29035b6d?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  border-radius: 10px;
+  padding: 1rem;
+  min-height: 350px;
+  color: white;    /* texto fica visível no fundo escuro */
+  overflow: hidden;
+}
+
+/* Overlay escuro */
+.form-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);   /* escurecimento */
+  z-index: 1;
+}
+
+/* Para garantir que o texto fique acima do overlay */
+.form-image * {
+  position: relative;
+  z-index: 2;
+}
+
+
+
+
+/* Formulário */
+form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+label {
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+/* Botão */
+button {
+  padding: 0.6rem;
+  border: none;
+  background:rgb(26, 133, 26);
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: rgb(22, 151, 33);
+}
+
+/* Mensagens */
+.erro {
+  font-size: 0.85rem;
+  color: #ff4f4f;
+}
+
+.msg-sucesso {
+  color: green;
+}
+
+.msg-erro {
+  color: red;
+}
+
+/* Responsivo */
+@media (max-width: 750px) {
+  .form-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  form {
+    width: 100%;
+  }
+}

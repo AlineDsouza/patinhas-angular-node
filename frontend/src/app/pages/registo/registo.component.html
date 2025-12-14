@@ -1,10 +1,8 @@
 <app-header></app-header>
 <div class="form-container">
   <div class="form-image">
-    <h2>Registo</h2>
-    <img src="https://images.unsplash.com/photo-1618814422919-d9f6d8c213c7" alt="Cão feliz para adoção" />
-    <h3>Encontre seu novo melhor amigo.</h3>
-    <p>Milhares de cães e gatos esperam por um lar. A jornada começa aqui.</p>
+    <h2>Crie sua conta</h2>
+     <h3>Encontre seu novo melhor amigo.</h3>
   </div>
 
 
@@ -17,23 +15,23 @@
   <input type="text" formControlName="nome">
   <p *ngIf="formRegisto.get('nome')?.touched && formRegisto.get('nome')?.hasError('required')" class="erro">
     Nome é obrigatório.
-  </p> <br>
+  </p>
 
   <label>E-mail:</label>
   <input type="email" formControlName="email">
   <p *ngIf="formRegisto.get('email')?.touched && formRegisto.get('email')?.hasError('email')" class="erro">
     E-mail inválido.
-  </p><br>
+  </p>
 
   <label>Senha:</label>
-  <input type="password" formControlName="senha"> <br>
+  <input type="password" formControlName="senha">
 
   <label>Confirmar Senha:</label>
-  <input type="password" formControlName="confirmaSenha"> <br>
+  <input type="password" formControlName="confirmaSenha">
 
   <button type="button" (click)="registrar()">Registar</button>
 
+  <p>Já tem conta?  <a routerLink="/login">Login</a></p>
 </form>
-<p>Já tem conta?  <a routerLink="/login">Login</a></p>
 
 </div>

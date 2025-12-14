@@ -1,6 +1,5 @@
 <app-header></app-header>
 
-<h2>Login</h2>
 
 <!-- MENSAGEM DE SUCESSO -->
 <p *ngIf="mensagemSucesso" class="msg-sucesso">{{ mensagemSucesso }}</p>
@@ -8,7 +7,8 @@
 <!-- MENSAGEM DE ERRO -->
 <p *ngIf="mensagemErro" class="msg-erro">{{ mensagemErro }}</p>
 
-<form [formGroup]="formLogin">
+<form [formGroup]="formLogin" class="login-formulario">
+  <h2>Login</h2>
 
   <!-- EMAIL -->
   <p class="requiredCampo"
@@ -35,5 +35,6 @@
   <!-- BOTÃO -->
   <button type="button" [disabled]="formLogin.invalid" (click)="entrar()">Entrar</button>
 
+  <p>Não tem registo? <a routerLink="/registo">Clique aqui</a></p>
 </form>
-<a routerLink="/registo">Registo</a>
+<br>
