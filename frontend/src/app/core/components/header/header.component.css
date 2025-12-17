@@ -56,7 +56,6 @@ button a.btn-login {
   font-weight: 500;
 }
 
-/* Botão principal */
 button {
   background: var(--cor-primaria);
   color: white;

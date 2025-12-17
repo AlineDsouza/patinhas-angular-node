@@ -196,7 +196,7 @@ h2{
 
 /* Cabeçalho */
 .table-coluna thead th {
-  background: var(--cor-secundaria);
+  background: var(--cor-primaria);
   padding: 0.75rem;
   color: #fff;
   font-weight: 600;
@@ -230,7 +230,7 @@ h2{
 }
 /* BOTÃO SELECIONAR */
 .btn-selecionar button {
-  background: var(--cor-secundaria);
+  background: var(--cor-primaria);
   padding: 0.45rem 1rem;
   border-radius: 8px;
   border: none;
