@@ -6,7 +6,7 @@
     <div class="painel-esquerdo">
         <p><strong>Admin:</strong> {{ nome }}</p>
         <p><strong>Email:</strong> {{ email }}</p>
-        <button (click)="logout()">Logout</button>
+        <button (click)="logout()">Encerrar Sessão</button>
     </div>
     
     <div class="painel-direito">
@@ -28,11 +28,17 @@
     </div>
 </div>
 <h3>Pedidos de Adoção ({{ formularios.length }})</h3>
+
 <ul>
   <li *ngFor="let f of formularios">
     <strong>{{ f.nomeAdotante }}</strong> - {{ f.emailAdotante }}
+
+    <button class="btn-pdf" (click)="baixarPdf(f)">
+      Download PDF
+    </button>
   </li>
 </ul>
+
 </div>
 
 
