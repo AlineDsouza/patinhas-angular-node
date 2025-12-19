@@ -99,3 +99,46 @@
     max-width: 100%;
   }
 }
+
+/*  PAGINAÇÃO */
+
+.paginacao {
+  display: flex;
+  justify-content: center;               /* centraliza a paginação */
+  align-items: center;
+  gap: var(--espaco-2);                  /* espaço entre os elementos */
+  margin-top: var(--espaco-4);
+}
+
+.paginacao button {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: var(--raio-pequeno);
+  background-color: var(--cor-primaria);
+  color: var(--cor-fundo-principal);
+  font-size: 0.9rem;
+  cursor: pointer;
+  box-shadow: var(--sombra-leve);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* efeito ao passar o mouse */
+.paginacao button:hover {
+  background-color: var(--cor-primaria-hover);
+  transform: translateY(-1px);
+}
+
+/* botão desativado */
+.paginacao button:disabled {
+  background-color: var(--cor-borda);
+  color: var(--cor-texto-suave);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* texto da página atual */
+.paginacao span {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--cor-texto-principal);
+}

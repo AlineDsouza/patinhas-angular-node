@@ -3,7 +3,7 @@
 
 <section class="layout-pets">
 
-  <!-- ================= FILTROS ================= -->
+  <!-- FILTROS -->
   <aside class="filtros">
 
     <label>Espécie:</label>
@@ -30,7 +30,7 @@
 
     <div class="container">
 
-      <div *ngFor="let item of petsFiltrados" class="card">
+      <div *ngFor="let item of petsPaginados" class="card">
         <h3>{{ item.nome }}</h3>
 
         <img [src]="item.imageUrl" alt="Imagem do pet">
@@ -47,4 +47,25 @@
 
   </main>
 
+
 </section>
+<!-- PAGINAÇÃO -->
+<div class="paginacao">
+
+<button 
+  (click)="paginaAnterior()" 
+  [disabled]="paginaAtual === 1">
+  Anterior
+</button>
+
+<span>
+   {{ paginaAtual }} de {{ totalPaginas }}
+</span>
+
+<button 
+  (click)="proximaPagina()" 
+  [disabled]="paginaAtual === totalPaginas">
+  Próxima
+</button>
+
+</div> <br>
