@@ -1,20 +1,35 @@
-
 <header class="header">
+  <!-- LOGO -->
   <div class="logo">Patinhas</div>
 
+  <!-- MENU PRINCIPAL -->
   <nav class="menu">
     <a routerLink="/home">Início</a>
     <a routerLink="/listaPets">Pets</a>
     <a routerLink="/sobreNos">Sobre</a>
     <a routerLink="/contacto">Contacto</a>
   </nav>
-  
-  <div *ngIf="utilizadorNome">
-  <p *ngIf="utilizadorRole === 'admin'">Perfil: {{ utilizadorRole }}</p>
+
+  <!-- ÁREA DO UTILIZADOR -->
+  <div class="user-area">
+
+    <!-- NÃO LOGADO -->
+    <a
+      *ngIf="!utilizadorNome" routerLink="/login" class="btn-login">
+      Login / Sign Up
+    </a>
+
+    <!-- LOGADO -->
+    <div *ngIf="utilizadorNome" class="user-menu">
+      <span class="user-name">{{ utilizadorNome }}</span> <br>
+      <a routerLink="/perfil" class="perfil">Perfil</a> <br>
+
+      <a  *ngIf="utilizadorRole === 'admin'" routerLink="/admin" class="admin-link">
+        Admin
+      </a>
+      <button (click)="logout()" class="btn-logout">
+        Logout
+      </button>
+    </div>
   </div>
-  
-  <button><a routerLink="/login" *ngIf="!utilizadorNome" (click)="logout()" class="btn-login">Login / Sign Up</a></button>
-  
-  <a routerLink="/perfil" *ngIf="utilizadorNome">Perfil</a>
-  <a routerLink="/admin"  *ngIf="utilizadorRole === 'admin'">Admin</a>
 </header>

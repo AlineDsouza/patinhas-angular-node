@@ -29,6 +29,7 @@ export class HeaderComponent {
   localStorage.clear();
   this.utilizadorNome = null;
   this.utilizadorRole = null;
+  window.location.reload();
 }
 
 }
