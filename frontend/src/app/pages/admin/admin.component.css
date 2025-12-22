@@ -2,6 +2,10 @@
   display: flex;
   height: 100vh;
 }
+h2{
+  display: flex;
+  
+}
 
 /* LADO ESQUERDO */
 .painel-esquerdo {
@@ -42,12 +46,16 @@
   margin-bottom: 0.5rem;
   padding: 0.75rem;
   border-radius: 8px;
-  font-size: 0.95rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* BOTÃO DE AÇÃO */
 .acoes {
   padding: 1rem 2rem;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .acoes button {

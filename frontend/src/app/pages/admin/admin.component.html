@@ -1,19 +1,35 @@
 <app-header></app-header>
-<h2>Painel do Administrador</h2>
-
+<h3>Painel do Administrador</h3>
+<div class="acoes">
+  <button (click)="irParaCrud()" class="botao">Gestão de Pets</button>
+</div>
 <section class="admin-info">
-    
-    <div class="painel-esquerdo">
-        <p><strong>Admin:</strong> {{ nome }}</p>
-        <p><strong>Email:</strong> {{ email }}</p>
-        <button (click)="logout()">Encerrar Sessão</button>
-    </div>
-    
+  
+  <div class="painel-esquerdo">
+    <p><strong>Admin:</strong> {{ nome }}</p>
+    <p><strong>Email:</strong> {{ email }}</p>
+    <button (click)="logout()">Encerrar Sessão</button>
+  </div>
+  
+
     <div class="painel-direito">
+     
+  <h2>Pedidos de Adoção ({{ formularios.length }})</h2>
+
+<ul>
+  <li *ngFor="let f of formularios">
+    <strong>
+      Nome: {{ f.nomeAdotante }} <br>
+       E-mail: {{ f.emailAdotante }}
+
+    </strong>
+
+    <button class="btn-pdf" (click)="baixarPdf(f)">
+      Download PDF
+    </button>
+  </li>
+</ul>
         <div class="pets-cadastrados">
-            <div class="acoes">
-              <button (click)="irParaCrud()" class="botao">Gestão de Pets</button>
-            </div>
      
             <h3>Pets Cadastrados ({{ pets.length }})</h3>
             
@@ -27,17 +43,6 @@
       </div>
     </div>
 </div>
-<h3>Pedidos de Adoção ({{ formularios.length }})</h3>
-
-<ul>
-  <li *ngFor="let f of formularios">
-    <strong>{{ f.nomeAdotante }}</strong> - {{ f.emailAdotante }}
-
-    <button class="btn-pdf" (click)="baixarPdf(f)">
-      Download PDF
-    </button>
-  </li>
-</ul>
 
 </div>
 
