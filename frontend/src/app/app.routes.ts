@@ -14,6 +14,9 @@ import { ListPetsComponent } from './pages/list-pets/list-pets.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { FooterComponent } from './core/components/footer/footer.component';
 import { CrudPetsComponent } from './pages/crud-pets/crud-pets.component';
+import { roleGuard } from './guards/admin-role.guard';
+import { userRoleGuard } from './guards/user-role.guard';
+import { userAdminRoleGuard } from './guards/user-admin-role.guard';
 
 export const routes: Routes = [
 
@@ -22,14 +25,14 @@ export const routes: Routes = [
     {path:'login',component: LoginComponent},
     {path:'registo',component: RegistoComponent},
     {path:'sobreNos',component: AboutUsComponent},
-    {path:'admin',component: AdminComponent},
-    {path:'formularioAdocao',component: AdoptionFormComponent},
+    {path:'admin',component: AdminComponent, canActivate:[roleGuard]},
+    {path:'formularioAdocao',component: AdoptionFormComponent, canActivate:[userRoleGuard]},
     {path:'contacto',component: ContactComponent},
     {path:'detalhes/:id',component: DetailsPetComponent},
     {path:'listaPets',component: ListPetsComponent},
-    {path:'perfil',component: ProfileComponent},
+    {path:'perfil',component: ProfileComponent, canActivate:[userAdminRoleGuard]},
     {path:'rodape',component: FooterComponent},
-    {path:'crud-pets',component: CrudPetsComponent},
+    {path:'crud-pets',component: CrudPetsComponent, canActivate:[roleGuard]},
     {path:'',redirectTo: 'login',pathMatch:'full'},
     {path:'**',redirectTo: 'login'} //quando a rota não for encontrada redireciona para home
 ]; 
