@@ -52,39 +52,72 @@ email: string | null = '';
 //Baixar pdf do formulário
 
 baixarPdf(formulario: AdocaoForm): void {
-  const doc = new jsPDF();
+ const doc = new jsPDF();
+ const logo = new Image();
+ logo.src = '/logo.png'; // imagem vinda da pasta public
 
-  doc.setFontSize(16);
-  doc.text('Formulário de Adoção', 20, 20);
+  // Cor principal do projeto
+  const corPrimaria = '#ff6f61';
 
+   /* ================= LOGO ================= */
+    doc.addImage(logo, 'PNG', 20, 10, 25, 25);
+    // (imagem, tipo,tamanhos)
+
+  /* ================= TÍTULO ================= */
+  doc.setTextColor(corPrimaria);
+  doc.setFontSize(18);
+  doc.text('Formulário de Adoção', 60, 25);
+
+  // Linha separadora
+  doc.setDrawColor(200);
+  doc.line(20, 35, 190, 35);
+
+  /* ================= DADOS DO ADOTANTE ================= */
+  doc.setTextColor(0);
   doc.setFontSize(12);
 
-  doc.text(`Nome do adotante: ${formulario.nomeAdotante}`, 20, 40);
-  doc.text(`Email: ${formulario.emailAdotante}`, 20, 50);
-  doc.text(`Telefone: ${formulario.telefone}`, 20, 60);
+  
+  doc.text('Nome do adotante:', 20, 45);
+  doc.text(formulario.nomeAdotante, 80, 45);
 
-  doc.text('Rotina do Pet:', 20, 80);
-  doc.text(formulario.rotinaPet, 20, 90, { maxWidth: 170 });
+  doc.text('Email:', 20, 55);
+  doc.text(formulario.emailAdotante, 80, 55);
 
+  doc.text('Telefone:', 20, 65);
+  doc.text(formulario.telefone, 80, 65);
+
+  /* ================= ROTINA ================= */
+  doc.text('Rotina do Pet:', 20, 85);
+  doc.text(formulario.rotinaPet, 20, 95, { maxWidth: 170 });
+
+  /* ================= EXPERIÊNCIA ================= */
   doc.text('Experiência Anterior com Animais:', 20, 120);
   doc.text(formulario.experienciaAnterior, 20, 130, { maxWidth: 170 });
 
+  /* ================= DISPONIBILIDADE ================= */
   doc.text(
-    `Disponibilidade: ${formulario.disponibilidade}`,
+    `Disponibilidade: ${formulario.disponibilidade || 'Não informado'}`,
     20,
-    160
+    155
   );
 
-  doc.text('Justificativa para adoção:', 20, 180);
+  /* ================= JUSTIFICATIVA ================= */
+  doc.text('Justificativa para adoção:', 20, 170);
   doc.text(
-    formulario.justificativa,
+    formulario.justificativa || 'Não informado',
     20,
-    190,
+    180,
     { maxWidth: 170 }
   );
 
+  /* ================= RODAPÉ ================= */
+  doc.setFontSize(10);
+  doc.setTextColor(120);
+  doc.text(
+    'Patinhas - Plataforma de Adoção',
+    20,
+    290
+  );
   doc.save(`formulario-adocao-${formulario.nomeAdotante}.pdf`);
 }
-
-
 }
