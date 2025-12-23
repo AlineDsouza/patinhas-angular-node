@@ -33,7 +33,7 @@ export const routes: Routes = [
     {path:'perfil',component: ProfileComponent, canActivate:[userAdminRoleGuard]},
     {path:'rodape',component: FooterComponent},
     {path:'crud-pets',component: CrudPetsComponent, canActivate:[roleGuard]},
-    {path:'',redirectTo: 'login',pathMatch:'full'},
+    {path:'',redirectTo: 'home',pathMatch:'full'},
     {path:'**',redirectTo: 'login'} //quando a rota não for encontrada redireciona para home
 ]; 
 
