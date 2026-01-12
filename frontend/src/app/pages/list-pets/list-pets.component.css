@@ -92,6 +92,18 @@
   flex: 0 0 calc(33.333% - var(--espaco-3));
   max-width: calc(33.333% - var(--espaco-3));
 }
+
+.card h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--cor-texto-principal);
+  margin-bottom: var(--espaco-1);
+  text-align: center;
+  text-transform: capitalize;
+}
+
+
+
 /* RESPONSIVO */
 /* 2 cards por linha */
 @media (max-width: 1024px) {
