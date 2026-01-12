@@ -154,15 +154,18 @@
 
   <!-- BOTÕES -->
   <br>
+<div class="btn">
 
   @if (btnCadastrar) {
     <button type="button" value="cadastrar" (click)="cadastrar()" [disabled]="formCrudPets.invalid">Cadastrar</button>
   }
   @else {
-    <button type="button" value="edita" (click)="editar()">Alterar</button>
+    <button type="button" value="edita" (click)="editar()">Alterar</button> 
     <button type="button" value="remover" (click)="deletar()">Deletar</button>
     <button type="button" value="cancelar" (click)="cancelar()">Cancelar</button>
   }
+</div>
+
   </div>
 <br>
 <div class="tabela">

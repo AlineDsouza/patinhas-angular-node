@@ -34,7 +34,11 @@ h2{
   text-align: center;
   padding: 2rem;
 }
-
+.btn {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
 /* Preview menor e centralizado */
 .cadastro .preview {
   width: 130px;

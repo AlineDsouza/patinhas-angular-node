@@ -1,4 +1,12 @@
 /*  GERAL*/
+
+.titulo-amigos {
+  margin: 1rem;
+  text-align: center;
+  color: var(--cor-primaria);
+  padding-top: 1.5rem;
+}
+
 .layout-pets {
   display: flex;
   gap: var(--espaco-4);
@@ -142,3 +150,6 @@
   font-weight: 500;
   color: var(--cor-texto-principal);
 }
+
+
+
