@@ -30,9 +30,9 @@ app.use(express.urlencoded({ limit: "15mb", extended: true })); //limite 15mb ma
 
 // CONFIG CORS
 app.use(cors({
-    origin: ['http://localhost:4200'], // Permite que front acesse a API
+    origin: '*', // Permite que front acesse a API (permitindo tudo apenas para testes de deploy)
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'UPDATE'], // métodos permitido
-    credentials: true// permite trabalhar com autenticação
+    //credentials: true// permite trabalhar com autenticação(tirar comentarios depois dos testes)
 }));
 
 //CONEXÃO COM MONGODB
