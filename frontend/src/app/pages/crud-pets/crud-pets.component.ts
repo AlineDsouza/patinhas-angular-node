@@ -56,10 +56,13 @@ exibirMensagemErro(msg: string) {
 }
 
 onFileSelected(event: any) {
+  // Captura o primeiro arquivo selecionado no input type="file"
   this.selectedFile = event.target.files[0];
-
+  // Cria um leitor de arquivos do navegador
   const reader = new FileReader();
+  // salva o resultado (Base64) na variável previewImagem
   reader.onload = e => this.previewImagem = reader.result as string;
+  // Lê o arquivo e converte para Base64 (Data URL)
   reader.readAsDataURL(this.selectedFile);
 }
 
