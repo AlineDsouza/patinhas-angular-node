@@ -56,11 +56,10 @@ export const buscaPets = async (request, response) => {
 
 // UPDATE
 export const editaPet = async (request, response) => {
-
-  try {
+ try {
     const { image, ...dadosAtualizados } = request.body;
+
     const petAtual = await petsCrud.findById(request.params.id);
-    // Busca o pet atual
     if (!petAtual) {
       return response.status(404).json({ error: "Pet não encontrado!" });
     }
@@ -68,20 +67,23 @@ export const editaPet = async (request, response) => {
     let imageUrl = petAtual.imageUrl;
     let imageId = petAtual.imageId;
 
+    // Só faz upload se uma NOVA imagem foi enviada
+    if (image && image.startsWith('data:image')) {
 
-    if (image) {// IMAGEM FOI ENVIADA
+      // Remove imagem antiga do Cloudinary
       if (imageId) {
-        await cloudinary.uploader.destroy(imageId);// Se já existe imagem, deleta do Cloudinary
+        await cloudinary.uploader.destroy(imageId);
       }
+
       // Upload da nova imagem
       const upload = await cloudinary.uploader.upload(image, {
         folder: "pets",
       });
+
       imageUrl = upload.secure_url;
       imageId = upload.public_id;
     }
 
-    // Atualiza o pet no MongoDB
     const petAtualizado = await petsCrud.findByIdAndUpdate(
       request.params.id,
       {
@@ -99,6 +101,7 @@ export const editaPet = async (request, response) => {
     response.status(500).json({ error: "Erro ao atualizar pet!" });
   }
 };
+
 
 // DELETE
 export const deletaPet = async (request, response) => {
