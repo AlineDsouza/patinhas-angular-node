@@ -8,7 +8,7 @@ Sistema web para gestão de adoção de cães e gatos, permitindo a visualizaç�
 ## 🚀 Tecnologias e Ferramentas
 
 <p align="left">
-  <img src="https://skillicons.dev/icons?i=angular,ts,js,nodejs,express,mongodb,git,github,vscode,postman,html,css" />
+  <img src="https://skillicons.dev/icons?i=angular,nodejs,express,mongodb,git,vscode,postman" />
 </p>
 
 **Outras tecnologias utilizadas:**
