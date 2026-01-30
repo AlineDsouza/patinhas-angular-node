@@ -5,15 +5,15 @@ Sistema web para gestão de adoção de cães e gatos, permitindo a visualizaç�
 > Projeto desenvolvido em prática full-stack.
 ---
 
-## 🏷️ Tecnologias
+## 🚀 Tecnologias e Ferramentas
 
-- Angular  
-- Node.js  
-- Express  
-- MongoDB  
-- JWT  
-- Cloudinary  
+<p align="left">
+  <img src="https://skillicons.dev/icons?i=angular,ts,js,nodejs,express,mongodb,git,github,vscode,postman,html,css" />
+</p>
 
+**Outras tecnologias utilizadas:**
+- 🔐 JWT (JSON Web Token) — autenticação e proteção de rotas  
+- ☁️ Cloudinary — upload e gestão de imagens  
 ---
 
 ## 📌 Sobre o Projeto
