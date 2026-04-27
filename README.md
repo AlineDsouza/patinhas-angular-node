@@ -93,9 +93,6 @@ cd frontend
 npm install
 ng serve
 
-A aplicação estará disponível em:
-👉 http://localhost
-
 ## 🖼️ Screenshots
 
 ### 🏠 Página Inicial
